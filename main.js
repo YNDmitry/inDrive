@@ -3,10 +3,10 @@ import Backend from 'i18next-http-backend';
 i18next
   .use(Backend)
   .init({
-    lng: 'en', // Set the default language
+    lng: 'en',
     fallbackLng: 'en',
     backend: {
-      loadPath: 'http://localhost:5173/locales/{{lng}}.json' // Path to the language files
+      loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/{{lng}}.json'
     }
   }, function (err, t) {
     if (err) return console.error(err);
@@ -16,117 +16,112 @@ i18next
 $('#start').click(function () {
   $('.main-screen').fadeOut(200, function () {
     document.getElementById('main-video').play();
-  })
-})
+  });
+});
 
 function updateContent() {
-  const language = i18next.language;
   $('#intro').text(i18next.t('intro.text'));
-  $('#start').text(i18next.t('intro.button'))
-  const quizDiv = $('#quiz');
-  quizDiv.empty();
-
-  quizData.questions.forEach(question => {
-    const questionDiv = $(`
-          <div class="question" data-id="${question.id}">
-            <p>${i18next.t(`questions.${question.id - 1}.text`)}</p>
-            ${question.options[language].map(option => `
-              <label>
-                <input type="radio" name="question${question.id}" value="${option}">
-                ${option}
-              </label>
-            `).join('')}
-          </div>
-        `);
-    quizDiv.append(questionDiv);
-  });
+  $('#start').text(i18next.t('intro.button'));
 }
 
 const video = document.getElementById('main-video');
 const stopTimes = [
   { start: 12, end: 16 },
   { start: 30, end: 34 },
-  { start: 22, end: 30 },
-  { start: 40, end: 45 },
-  { start: 50, end: 55 },
-  { start: 60, end: 65 },
-  { start: 70, end: 75 },
-  { start: 80, end: 85 },
-  { start: 90, end: 95 },
-  { start: 100, end: 105 },
-  { start: 110, end: 115 },
-  { start: 120, end: 125 },
-  { start: 130, end: 135 }
+  { start: 45, end: 49 },
+  { start: 60, end: 64 },
+  { start: 75, end: 79 },
+  { start: 92, end: 96 },
+  { start: 112, end: 116 },
+  { start: 136, end: 141 },
+  { start: 161, end: 165 },
+  { start: 180, end: 184 },
+  { start: 205, end: 209 },
+  { start: 235, end: 245 }
 ];
 let currentQuestion = 0;
-let loopInterval = null;
+let score = 0;
+let isLooping = false;
+let loopHandler = null;
 
 video.addEventListener('timeupdate', function () {
-  if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
+  if (!isLooping && currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
     video.pause();
-    loopVideoSegment(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
     showQuestion(currentQuestion);
-    currentQuestion++;
+    startLooping(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
   }
 });
 
-function loopVideoSegment(start, end) {
-  video.currentTime = start;
-  video.play();
+function startLooping(start, end) {
+  isLooping = true;
 
-  video.addEventListener('timeupdate', function loop() {
+  loopHandler = function () {
     if (video.currentTime >= end) {
       video.currentTime = start;
       video.play();
     }
-  });
+  };
 
-  // Stop looping when the question is answered
-  $('#quiz button.continue').click(function () {
-    video.removeEventListener('timeupdate', loop);
-    video.currentTime = end;
-    video.play();
-  });
+  video.addEventListener('timeupdate', loopHandler);
+
+  // Start playing the video to initiate the loop
+  video.currentTime = start;
+  video.play();
+}
+
+function stopLooping(end) {
+  if (loopHandler) {
+    video.removeEventListener('timeupdate', loopHandler);
+    loopHandler = null;
+  }
+  isLooping = false;
+  video.currentTime = end;
+  video.play();
 }
 
 function showQuestion(index) {
-  const question = quizData.questions[index];
-  const language = i18next.language;
-  const questionDiv = $(`
-    <div class="question" data-id="${question.id}">
-      <p>${i18next.t(`questions.${question.id - 1}.text`)}</p>
-      ${question.options[language].map(option => `
-        <label>
-          <input type="radio" name="question${question.id}" value="${option}">
-          ${option}
-        </label>
-      `).join('')}
-      <button class="continue">Continue</button>
-    </div>
-  `);
-  $('#quiz').html(questionDiv).fadeIn(200);
-}
+  const question = i18next.t(`questions.${index}`, { returnObjects: true });
+  const questionButtons = question.options.map(option => `
+    <button class="quiz_button">${option}</button>
+  `).join('');
 
-$('#submitQuiz').click(function () {
-  let score = 0;
-  const language = i18next.language;
+  $('#quiz .quiz_message-p').text(question.text);
+  $('#quiz .quiz_body').show().html(questionButtons);
+  $('#quiz').fadeIn(200);
 
-  quizData.questions.forEach(question => {
-    const selectedOption = $(`input[name=question${question.id}]:checked`).val();
-    const correctAnswer = question.correctAnswer[language];
-    const feedbackDiv = $(`<div class="feedback"></div>`);
+  $('.quiz_button').off('click').on('click', function () {
+    const selectedOption = $(this).text();
+    const feedback = selectedOption === question.correctAnswer ? question.feedback.correct : question.feedback.incorrect;
 
-    if (selectedOption === correctAnswer) {
+    if (selectedOption === question.correctAnswer) {
       score++;
-      feedbackDiv.text(i18next.t(`questions.${question.id - 1}.feedback.correct`));
-    } else {
-      feedbackDiv.text(i18next.t(`questions.${question.id - 1}.feedback.incorrect`));
     }
 
-    $(`div[data-id=${question.id}]`).append(feedbackDiv);
-  });
+    $('#quiz .quiz_body').fadeOut(200, function () {
+      $('.quiz_result-message').text(feedback);
+      $('.quiz_result').fadeIn(200);
 
-  const resultDiv = $('#result');
+      $('#quiz-next-btn').off('click').on('click', function () {
+        $('.quiz_result').fadeOut(200, function () {
+          $('#quiz').fadeOut(200, function () {
+            stopLooping(stopTimes[currentQuestion].end);
+            currentQuestion++;
+            if (currentQuestion < stopTimes.length) {
+              video.currentTime = stopTimes[currentQuestion - 1].end;
+              video.play();
+            } else {
+              showFinalResult();
+            }
+          });
+        });
+      });
+    });
+  });
+}
+
+function showFinalResult() {
+  $('#quiz').hide();
+  const totalQuestions = i18next.t('questions', { returnObjects: true }).length;
   let resultText = "";
 
   if (score >= 9) {
@@ -139,5 +134,20 @@ $('#submitQuiz').click(function () {
     resultText = i18next.t('results.0-1');
   }
 
-  resultDiv.text(`Your score: ${score}\n${resultText}`);
-});
+  $('#global-result .quiz_message-p').text(`Your score: ${score}/${totalQuestions}\n${resultText}`).show();
+
+  // Show restart button
+  $('#restart-btn').show().off('click').on('click', function () {
+    restartQuiz();
+  });
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  $('#global-result .quiz_message-p').hide();
+  $('#restart-btn').hide();
+  $('#quiz').fadeIn(200);
+  video.currentTime = 0;
+  video.play();
+}
