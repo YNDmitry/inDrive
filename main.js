@@ -111,8 +111,8 @@ function showQuestion(index) {
     return;
   }
 
-  const questionButtons = question.options.map(option => `
-    <button class="quiz_button">${option}</button>
+  const questionButtons = question.options.map((option, idx) => `
+    <button class="quiz_button">${idx + 1} ${option}</button>
   `).join('');
 
   $('#quiz .quiz_message-p').text(question.text);
@@ -183,7 +183,7 @@ function restartQuiz() {
   currentQuestion = 0;
   score = 0;
   $('#global-result').hide();
-  $('#quiz').fadeIn(200);
+  $('#quiz').fadeOut(200);
 
   video.pause();
   stopLooping(stopTimes[stopTimes.length - 1].end);
