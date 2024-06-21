@@ -1,11 +1,15 @@
 {
+  "main": {
+    "tryAgainButton": "Try again?",
+    "nextButton": "Continue"
+  },
   "intro": {
     "text": "Hello!\n\nReady to embark on a journey through the history of inDrive?\nAt the end of the game, you'll receive a pleasant surprise!",
     "button": "Let's go!"
   },
   "questions": [
     {
-      "id": 1,
+      "id": 0,
       "text": "In which city did the history of inDrive begin?",
       "options": [
         "Yakutsk",
@@ -19,7 +23,7 @@
       }
     },
     {
-      "id": 2,
+      "id": 1,
       "text": "In 2014, inDrive reached a new level and appeared in another country. Can you guess which one?",
       "options": [
         "Mexico",
@@ -33,7 +37,7 @@
       }
     },
     {
-      "id": 3,
+      "id": 2,
       "text": "Which of these cities has inDrive?",
       "options": [
         "Bolt-York",
@@ -47,7 +51,7 @@
       }
     },
     {
-      "id": 4,
+      "id": 3,
       "text": "How many cities does inDrive cover?",
       "options": [
         "463",
@@ -61,7 +65,7 @@
       }
     },
     {
-      "id": 5,
+      "id": 4,
       "text": "What makes inDrive different from similar apps?",
       "options": [
         "You can negotiate the fare in inDrive",
@@ -75,7 +79,7 @@
       }
     },
     {
-      "id": 6,
+      "id": 5,
       "text": "What is the main mission of inDrive?",
       "options": [
         "Fighting injustice",
@@ -89,7 +93,7 @@
       }
     },
     {
-      "id": 7,
+      "id": 6,
       "text": "In April 2021, inDrive achieved a fairytale startup status. What is it called?",
       "options": [
         "Unicorn",
@@ -103,7 +107,7 @@
       }
     },
     {
-      "id": 8,
+      "id": 7,
       "text": "inDrive supports many different social initiatives. Which of the following does inDrive NOT do?",
       "options": [
         "Educational projects for teenagers and sports clubs",
@@ -117,7 +121,7 @@
       }
     },
     {
-      "id": 9,
+      "id": 8,
       "text": "What unusual items, or maybe even animals, have passengers forgotten in inDrive?",
       "options": [
         "A case with $1,000,000, an opossum, and a collector's edition of comics",
@@ -131,7 +135,7 @@
       }
     },
     {
-      "id": 10,
+      "id": 9,
       "text": "At one point, inDrive celebrated 200 million rides worldwide. When did this happen?",
       "options": [
         "September 2022",
@@ -145,7 +149,7 @@
       }
     },
     {
-      "id": 11,
+      "id": 10,
       "text": "Once, one of inDrive's passengers was a superhero. Who do you think it was?",
       "options": [
         "Spider-Man",

@@ -15,16 +15,33 @@ i18next
 
 $('#start').click(function () {
   $('.main-screen').fadeOut(200, function () {
-    document.getElementById('main-video').play();
+    startVideoAndAudio();
   });
 });
+
+function startVideoAndAudio() {
+  document.getElementById('main-video').play();
+  document.getElementById('main-audio').play();
+  document.getElementById('car-audio').play();
+}
 
 function updateContent() {
   $('#intro').text(i18next.t('intro.text'));
   $('#start').text(i18next.t('intro.button'));
+  if (currentQuestion > 0 && currentQuestion < stopTimes.length - 1) {
+    if ($('.quiz_body').is(':visible')) {
+      showQuestion(currentQuestion); // Refresh current question in new language
+    } else if ($('.quiz_result').is(':visible')) {
+      showFeedback(); // Refresh feedback in new language
+    }
+  }
 }
 
 const video = document.getElementById('main-video');
+const mainAudio = document.getElementById('main-audio');
+const carAudio = document.getElementById('car-audio');
+video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
+
 const stopTimes = [
   { start: 12, end: 16 },
   { start: 30, end: 34 },
@@ -37,8 +54,9 @@ const stopTimes = [
   { start: 161, end: 165 },
   { start: 180, end: 184 },
   { start: 205, end: 209 },
-  { start: 235, end: 245 }
+  { start: 238, end: 245 }
 ];
+
 let currentQuestion = 0;
 let score = 0;
 let isLooping = false;
@@ -47,8 +65,13 @@ let loopHandler = null;
 video.addEventListener('timeupdate', function () {
   if (!isLooping && currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
     video.pause();
-    showQuestion(currentQuestion);
-    startLooping(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
+    if (currentQuestion < stopTimes.length - 1) {
+      showQuestion(currentQuestion);
+      startLooping(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
+    } else {
+      showFinalResult();
+      startLooping(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
+    }
   }
 });
 
@@ -81,6 +104,12 @@ function stopLooping(end) {
 
 function showQuestion(index) {
   const question = i18next.t(`questions.${index}`, { returnObjects: true });
+
+  if (!question || !question.options) {
+    console.error(`Question or options not found for index: ${index}`);
+    return;
+  }
+
   const questionButtons = question.options.map(option => `
     <button class="quiz_button">${option}</button>
   `).join('');
@@ -98,7 +127,8 @@ function showQuestion(index) {
     }
 
     $('#quiz .quiz_body').fadeOut(200, function () {
-      $('.quiz_result-message').text(feedback);
+      $('.quiz_result-message').data('feedback', feedback);
+      showFeedback();
       $('.quiz_result').fadeIn(200);
 
       $('#quiz-next-btn').off('click').on('click', function () {
@@ -106,7 +136,7 @@ function showQuestion(index) {
           $('#quiz').fadeOut(200, function () {
             stopLooping(stopTimes[currentQuestion].end);
             currentQuestion++;
-            if (currentQuestion < stopTimes.length) {
+            if (currentQuestion < stopTimes.length - 1) {
               video.currentTime = stopTimes[currentQuestion - 1].end;
               video.play();
             } else {
@@ -117,6 +147,11 @@ function showQuestion(index) {
       });
     });
   });
+}
+
+function showFeedback() {
+  const feedback = $('.quiz_result-message').data('feedback');
+  $('.quiz_result-message').text(feedback);
 }
 
 function showFinalResult() {
@@ -134,10 +169,11 @@ function showFinalResult() {
     resultText = i18next.t('results.0-1');
   }
 
-  $('#global-result .quiz_message-p').text(`Your score: ${score}/${totalQuestions}\n${resultText}`).show();
+  $('#global-result').show()
+  $('#global-result .quiz_message-p').text(`Your score: ${score}/${totalQuestions}\n${resultText}`)
 
   // Show restart button
-  $('#restart-btn').show().off('click').on('click', function () {
+  $('#restart-btn').off('click').on('click', function () {
     restartQuiz();
   });
 }
@@ -145,9 +181,31 @@ function showFinalResult() {
 function restartQuiz() {
   currentQuestion = 0;
   score = 0;
-  $('#global-result .quiz_message-p').hide();
-  $('#restart-btn').hide();
+  $('#global-result').hide();
   $('#quiz').fadeIn(200);
+
+  video.pause();
+  stopLooping(stopTimes[stopTimes.length - 1].end);
   video.currentTime = 0;
-  video.play();
+  startVideoAndAudio();
 }
+
+// Toggle audio
+$('#toggleAudio').click(function () {
+  if (mainAudio.muted) {
+    mainAudio.muted = false;
+    carAudio.muted = false;
+  } else {
+    mainAudio.muted = true;
+    carAudio.muted = true;
+  }
+});
+
+// Change language
+$('[data-lng]').click(function () {
+  const lng = $(this).attr('data-lng');
+  i18next.changeLanguage(lng, function (err, t) {
+    if (err) return console.error('Error changing language', err);
+    updateContent();
+  });
+});
