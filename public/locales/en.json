@@ -1,0 +1,168 @@
+{
+  "intro": {
+    "text": "Hello!\n\nReady to embark on a journey through the history of inDrive?\nAt the end of the game, you'll receive a pleasant surprise!",
+    "button": "Let's go!"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "text": "In which city did the history of inDrive begin?",
+      "options": [
+        "Yakutsk",
+        "Astana",
+        "New York"
+      ],
+      "correctAnswer": "Yakutsk",
+      "feedback": {
+        "correct": "Correct! The history of inDrive began in Yakutsk - one of the coldest cities in the world.",
+        "incorrect": "Almost guessed! In fact, it's Yakutsk. inDrive appeared in response to injustice. During the New Year, in the coldest days, local transport companies doubled their rates, putting the residents in a difficult position. Thus, inDrive was created - an app where everyone can make a trip at a fair price."
+      }
+    },
+    {
+      "id": 2,
+      "text": "In 2014, inDrive reached a new level and appeared in another country. Can you guess which one?",
+      "options": [
+        "Mexico",
+        "Kazakhstan",
+        "Indonesia"
+      ],
+      "correctAnswer": "Kazakhstan",
+      "feedback": {
+        "correct": "That's right, it was Kazakhstan! And in 4 years we entered the Central and South American markets.",
+        "incorrect": "It was Kazakhstan. And in 4 years we entered the Central and South American markets."
+      }
+    },
+    {
+      "id": 3,
+      "text": "Which of these cities has inDrive?",
+      "options": [
+        "Bolt-York",
+        "Uberlandia",
+        "Gettsburg"
+      ],
+      "correctAnswer": "Uberlandia",
+      "feedback": {
+        "correct": "Correct, it's Uberlandia! If you ever visit this Brazilian town, know that you can always negotiate the fare.",
+        "incorrect": "It's Uberlandia! Yes, it's a real city in Brazil. And Gettsburg and Bolt-York are made up."
+      }
+    },
+    {
+      "id": 4,
+      "text": "How many cities does inDrive cover?",
+      "options": [
+        "463",
+        "652",
+        "749"
+      ],
+      "correctAnswer": "749",
+      "feedback": {
+        "correct": "You guessed it, 749! But we always strive for more!",
+        "incorrect": "Oops, wrong! Currently, inDrive is present in 749 cities. But we have grand plans, of course."
+      }
+    },
+    {
+      "id": 5,
+      "text": "What makes inDrive different from similar apps?",
+      "options": [
+        "You can negotiate the fare in inDrive",
+        "You can choose a driver by zodiac sign in inDrive",
+        "You can order a helicopter in inDrive"
+      ],
+      "correctAnswer": "You can negotiate the fare in inDrive",
+      "feedback": {
+        "correct": "That's right! A fair trip price is the main difference between inDrive and other apps.",
+        "incorrect": "First and foremost, we are for social justice. Therefore, in inDrive you can always negotiate the fare."
+      }
+    },
+    {
+      "id": 6,
+      "text": "What is the main mission of inDrive?",
+      "options": [
+        "Fighting injustice",
+        "Introducing all drivers and passengers in cities",
+        "Teaching passengers not to slam doors"
+      ],
+      "correctAnswer": "Fighting injustice",
+      "feedback": {
+        "correct": "Exactly! We strive for people and communities around the world to have equal and fair opportunities for development and prosperity. And you clearly share our values.",
+        "incorrect": "The main mission of inDrive is to fight injustice. People and communities around the world should have equal and fair opportunities for development and prosperity."
+      }
+    },
+    {
+      "id": 7,
+      "text": "In April 2021, inDrive achieved a fairytale startup status. What is it called?",
+      "options": [
+        "Unicorn",
+        "Griffin",
+        "Dragon"
+      ],
+      "correctAnswer": "Unicorn",
+      "feedback": {
+        "correct": "Bingo! You clearly know business terms.",
+        "incorrect": "No fairytales here, we're serious! In 2021, inDrive achieved unicorn status - a company with a market valuation of over 1 billion dollars."
+      }
+    },
+    {
+      "id": 8,
+      "text": "inDrive supports many different social initiatives. Which of the following does inDrive NOT do?",
+      "options": [
+        "Educational projects for teenagers and sports clubs",
+        "Film festival and startup support",
+        "Organizing local parties for users worldwide"
+      ],
+      "correctAnswer": "Organizing local parties for users worldwide",
+      "feedback": {
+        "correct": "Super! Yes, with our inVision hub, we support various social initiatives: educational projects for teenagers, various sports clubs, startups, and even a film festival.",
+        "incorrect": "This time... missed! To increase our impact, we created a hub called inVision, where we fight against unfair resource distribution in education, creative industries, startups, and sports, supporting underprivileged groups. But we haven't organized parties yet."
+      }
+    },
+    {
+      "id": 9,
+      "text": "What unusual items, or maybe even animals, have passengers forgotten in inDrive?",
+      "options": [
+        "A case with $1,000,000, an opossum, and a collector's edition of comics",
+        "Toothpaste, a magic ball, the World Cup",
+        "2 wedding dresses in one day, dentures, a live duck"
+      ],
+      "correctAnswer": "2 wedding dresses in one day, dentures, a live duck",
+      "feedback": {
+        "correct": "Right on target! inDrive passengers sometimes leave the most unexpected things in cars, and once someone even forgot a live duck!",
+        "incorrect": "You almost guessed it! inDrive passengers once left dentures, a real duck, and even 2 wedding dresses in one day. Imagine the drivers' faces when they found all this!"
+      }
+    },
+    {
+      "id": 10,
+      "text": "At one point, inDrive celebrated 200 million rides worldwide. When did this happen?",
+      "options": [
+        "September 2022",
+        "November 2023",
+        "June 2019"
+      ],
+      "correctAnswer": "November 2023",
+      "feedback": {
+        "correct": "You are absolutely right! And now there are even more rides!",
+        "incorrect": "This happened in November 2023. 200,000,000 rides, can you imagine?"
+      }
+    },
+    {
+      "id": 11,
+      "text": "Once, one of inDrive's passengers was a superhero. Who do you think it was?",
+      "options": [
+        "Spider-Man",
+        "Batman",
+        "Wolverine"
+      ],
+      "correctAnswer": "Spider-Man",
+      "feedback": {
+        "correct": "Ha-ha! Yes, it was Spider-Man! Do you know this story? Once, an old lady got a ride with a man in a Spider-Man costume. The trip must have been unforgettable!",
+        "incorrect": "You were close! It was... Spider-Man! Once, on an intercity trip, an old lady got an unexpected fellow traveler - a passenger in a Spider-Man costume. There is even a video of it on the internet!"
+      }
+    }
+  ],
+  "results": {
+    "9-11": "Experienced adventurer. You navigate the terrain excellently and can solve even the most complex puzzle.",
+    "6-8": "Brave adventurer. Always ready for new discoveries and not afraid to experiment.",
+    "2-5": "Young traveler with all roads open. Fly with the wind, the most wonderful awaits ahead!",
+    "0-1": "Hmm... Trying to trick us? We are sure you know a lot about inDrive. Let's try again?"
+  }
+}

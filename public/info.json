@@ -1,389 +1,332 @@
 {
-  "intro": {
-    "en": "Hello!\n\nReady to embark on a journey through the history of inDrive?\nAt the end of the game, you'll receive a pleasant surprise!",
-    "ru": "Привет!\n\nГотов отправиться в путешествие по истории inDrive?\nВ конце игры тебя ждет приятный сюрприз!"
-  },
-  "questions": [
-    {
-      "id": 1,
-      "text": {
-        "en": "In which city did the history of inDrive begin?",
-        "ru": "В каком городе началась история inDrive?"
-      },
-      "options": {
-        "en": [
+  "en": {
+    "intro": "Hello!\n\nReady to embark on a journey through the history of inDrive?\nAt the end of the game, you'll receive a pleasant surprise!",
+    "questions": [
+      {
+        "id": 1,
+        "text": "In which city did the history of inDrive begin?",
+        "options": [
           "Yakutsk",
           "Astana",
           "New York"
         ],
-        "ru": [
-          "Якутск",
-          "Астана",
-          "Нью-Йорк"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Yakutsk",
-        "ru": "Якутск"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Correct! The history of inDrive began in Yakutsk - one of the coldest cities in the world.",
-          "ru": "Все верно! История inDrive началась в Якутске — одном из самых холодных городов мира."
-        },
-        "incorrect": {
-          "en": "Almost guessed! In fact, it's Yakutsk. inDrive appeared in response to injustice. During the New Year, in the coldest days, local transport companies doubled their rates, putting the residents in a difficult position. Thus, inDrive was created - an app where everyone can make a trip at a fair price.",
-          "ru": "Почти угадали! На самом деле это — Якутск. inDrive появился в ответ на несправедливость. Под Новый год, в самые морозные дни, местные транспортные компании удвоили свои тарифы, поставив в затруднительное положение жителей города. Так возник inDrive — приложение, где каждый может совершить поездку по справедливой цене."
+        "correctAnswer": "Yakutsk",
+        "feedback": {
+          "correct": "Correct! The history of inDrive began in Yakutsk - one of the coldest cities in the world.",
+          "incorrect": "Almost guessed! In fact, it's Yakutsk. inDrive appeared in response to injustice. During the New Year, in the coldest days, local transport companies doubled their rates, putting the residents in a difficult position. Thus, inDrive was created - an app where everyone can make a trip at a fair price."
         }
-      }
-    },
-    {
-      "id": 2,
-      "text": {
-        "en": "In 2014, inDrive reached a new level and appeared in another country. Can you guess which one?",
-        "ru": "В 2014 году inDrive вышел на новый уровень и появился еще в одной стране. Догадаетесь, в какой?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 2,
+        "text": "In 2014, inDrive reached a new level and appeared in another country. Can you guess which one?",
+        "options": [
           "Mexico",
           "Kazakhstan",
           "Indonesia"
         ],
-        "ru": [
-          "Мексика",
-          "Казахстан",
-          "Индонезия"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Kazakhstan",
-        "ru": "Казахстан"
-      },
-      "feedback": {
-        "correct": {
-          "en": "That's right, it was Kazakhstan! And in 4 years we entered the Central and South American markets.",
-          "ru": "Так и есть, это был Казахстан! А через 4 года мы уже вышли на рынок Центральной и Южной Америки."
-        },
-        "incorrect": {
-          "en": "It was Kazakhstan. And in 4 years we entered the Central and South American markets.",
-          "ru": "Это был Казахстан. А уже через 4 года мы вышли на рынок Центральной и Южной Америки."
+        "correctAnswer": "Kazakhstan",
+        "feedback": {
+          "correct": "That's right, it was Kazakhstan! And in 4 years we entered the Central and South American markets.",
+          "incorrect": "It was Kazakhstan. And in 4 years we entered the Central and South American markets."
         }
-      }
-    },
-    {
-      "id": 3,
-      "text": {
-        "en": "Which of these cities has inDrive?",
-        "ru": "Как вы думаете, в каком из городов есть inDrive?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 3,
+        "text": "Which of these cities has inDrive?",
+        "options": [
           "Bolt-York",
           "Uberlandia",
           "Gettsburg"
         ],
-        "ru": [
-          "Болт-Йорк",
-          "Уберландия",
-          "Геттсбург"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Uberlandia",
-        "ru": "Уберландия"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Correct, it's Uberlandia! If you ever visit this Brazilian town, know that you can always negotiate the fare.",
-          "ru": "Правильно, это Уберландия! Если когда-нибудь соберетесь в этот бразильский городок — знайте, что там вы всегда сможете договориться о цене поездки."
-        },
-        "incorrect": {
-          "en": "It's Uberlandia! Yes, it's a real city in Brazil. And Gettsburg and Bolt-York are made up.",
-          "ru": "Это Уберландия! Да-да, это настоящий город в Бразилии. Ну а Геттсбург и Болт-Йорк мы выдумали."
+        "correctAnswer": "Uberlandia",
+        "feedback": {
+          "correct": "Correct, it's Uberlandia! If you ever visit this Brazilian town, know that you can always negotiate the fare.",
+          "incorrect": "It's Uberlandia! Yes, it's a real city in Brazil. And Gettsburg and Bolt-York are made up."
         }
-      }
-    },
-    {
-      "id": 4,
-      "text": {
-        "en": "How many cities does inDrive cover?",
-        "ru": "Как вы думаете, сколько всего городов охватывает inDrive?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 4,
+        "text": "How many cities does inDrive cover?",
+        "options": [
           "463",
           "652",
           "749"
         ],
-        "ru": [
-          "463",
-          "652",
-          "749"
-        ]
-      },
-      "correctAnswer": {
-        "en": "749",
-        "ru": "749"
-      },
-      "feedback": {
-        "correct": {
-          "en": "You guessed it, 749! But we always strive for more!",
-          "ru": "Угадали, 749! Но мы всегда стремимся к большему!"
-        },
-        "incorrect": {
-          "en": "Oops, wrong! Currently, inDrive is present in 749 cities. But we have grand plans, of course.",
-          "ru": "Упс, не угадали! На данный момент inDrive присутствует в 749 городах. Но планы у нас, конечно же, грандиозные."
+        "correctAnswer": "749",
+        "feedback": {
+          "correct": "You guessed it, 749! But we always strive for more!",
+          "incorrect": "Oops, wrong! Currently, inDrive is present in 749 cities. But we have grand plans, of course."
         }
-      }
-    },
-    {
-      "id": 5,
-      "text": {
-        "en": "What makes inDrive different from similar apps?",
-        "ru": "Чем отличается inDrive от похожих приложений?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 5,
+        "text": "What makes inDrive different from similar apps?",
+        "options": [
           "You can negotiate the fare in inDrive",
           "You can choose a driver by zodiac sign in inDrive",
           "You can order a helicopter in inDrive"
         ],
-        "ru": [
-          "В inDrive можно договориться о цене",
-          "В inDrive можно выбрать водителя по знаку зодиака",
-          "В inDrive можно заказать вертолет"
-        ]
-      },
-      "correctAnswer": {
-        "en": "You can negotiate the fare in inDrive",
-        "ru": "В inDrive можно договориться о цене"
-      },
-      "feedback": {
-        "correct": {
-          "en": "That's right! A fair trip price is the main difference between inDrive and other apps.",
-          "ru": "Все так! Справедливая цена поездки — главное отличие inDrive от других приложений."
-        },
-        "incorrect": {
-          "en": "First and foremost, we are for social justice. Therefore, in inDrive you can always negotiate the fare.",
-          "ru": "В первую очередь мы — за социальную справедливость. Поэтому в inDrive вы всегда можете договориться о цене."
+        "correctAnswer": "You can negotiate the fare in inDrive",
+        "feedback": {
+          "correct": "That's right! A fair trip price is the main difference between inDrive and other apps.",
+          "incorrect": "First and foremost, we are for social justice. Therefore, in inDrive you can always negotiate the fare."
         }
-      }
-    },
-    {
-      "id": 6,
-      "text": {
-        "en": "What is the main mission of inDrive?",
-        "ru": "В чем заключается главная миссия inDrive?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 6,
+        "text": "What is the main mission of inDrive?",
+        "options": [
           "Fighting injustice",
           "Introducing all drivers and passengers in cities",
           "Teaching passengers not to slam doors"
         ],
-        "ru": [
-          "Борьба с несправедливостью",
-          "Познакомить всех водителей и пассажиров в городах",
-          "Приучить пассажиров не хлопать дверью"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Fighting injustice",
-        "ru": "Борьба с несправедливостью"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Exactly! We strive for people and communities around the world to have equal and fair opportunities for development and prosperity. And you clearly share our values.",
-          "ru": "В точку! Мы стремимся к тому, чтобы люди и сообщества во всём мире имели равные и справедливые возможности для развития и процветания. Ну а вы явно придерживаетесь наших ценностей."
-        },
-        "incorrect": {
-          "en": "The main mission of inDrive is to fight injustice. People and communities around the world should have equal and fair opportunities for development and prosperity.",
-          "ru": "Главная миссия inDrive — борьба с несправедливостью. Люди и сообщества во всём мире должны иметь равные и справедливые возможности для развития и процветания."
+        "correctAnswer": "Fighting injustice",
+        "feedback": {
+          "correct": "Exactly! We strive for people and communities around the world to have equal and fair opportunities for development and prosperity. And you clearly share our values.",
+          "incorrect": "The main mission of inDrive is to fight injustice. People and communities around the world should have equal and fair opportunities for development and prosperity."
         }
-      }
-    },
-    {
-      "id": 7,
-      "text": {
-        "en": "In April 2021, inDrive achieved a fairytale startup status. What is it called?",
-        "ru": "В апреле 2021 года inDrive получил сказочный статус стартапа. Как называется этот статус?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 7,
+        "text": "In April 2021, inDrive achieved a fairytale startup status. What is it called?",
+        "options": [
           "Unicorn",
           "Griffin",
           "Dragon"
         ],
-        "ru": [
-          "Единорог",
-          "Грифон",
-          "Дракон"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Unicorn",
-        "ru": "Единорог"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Bingo! You clearly know business terms.",
-          "ru": "Бинго! Вы явно в курсе бизнес-терминов."
-        },
-        "incorrect": {
-          "en": "No fairytales here, we're serious! In 2021, inDrive achieved unicorn status - a company with a market valuation of over 1 billion dollars.",
-          "ru": "Никаких сказок, у нас тут все серьезно! В 2021 году inDrive получил статус единорога — компании, рыночная оценка стоимости которой составляет более 1 миллиарда долларов."
+        "correctAnswer": "Unicorn",
+        "feedback": {
+          "correct": "Bingo! You clearly know business terms.",
+          "incorrect": "No fairytales here, we're serious! In 2021, inDrive achieved unicorn status - a company with a market valuation of over 1 billion dollars."
         }
-      }
-    },
-    {
-      "id": 8,
-      "text": {
-        "en": "inDrive supports many different social initiatives. Which of the following does inDrive NOT do?",
-        "ru": "inDrive поддерживает много различных социальных инициатив. Чем из перечисленного НЕ занимается inDrive?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 8,
+        "text": "inDrive supports many different social initiatives. Which of the following does inDrive NOT do?",
+        "options": [
           "Educational projects for teenagers and sports clubs",
           "Film festival and startup support",
           "Organizing local parties for users worldwide"
         ],
-        "ru": [
-          "Образовательные проекты для подростков и спортивные секции",
-          "Кинофестиваль и поддержка стартапов",
-          "Организация локальных вечеринок для пользователей по всему миру"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Organizing local parties for users worldwide",
-        "ru": "Организация локальных вечеринок для пользователей по всему миру"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Super! Yes, with our inVision hub, we support various social initiatives: educational projects for teenagers, various sports clubs, startups, and even a film festival.",
-          "ru": "Супер! Да, с помощью нашего хаба inVision мы поддерживаем различные социальные инициативы: образовательные проекты для подростков, различные спортивные секции, стартапы и даже кинофестиваль."
-        },
-        "incorrect": {
-          "en": "This time... missed! To increase our impact, we created a hub called inVision, where we fight against unfair resource distribution in education, creative industries, startups, and sports, supporting underprivileged groups. But we haven't organized parties yet.",
-          "ru": "В этот раз… мимо! Чтобы увеличить наше влияние, мы создали хаб под названием inVision, где боремся с несправедливым распределением ресурсов в образовании, креативных индустриях, стартапах и спорте, поддерживая малообеспеченные группы. Но вечеринки пока не организовывали."
+        "correctAnswer": "Organizing local parties for users worldwide",
+        "feedback": {
+          "correct": "Super! Yes, with our inVision hub, we support various social initiatives: educational projects for teenagers, various sports clubs, startups, and even a film festival.",
+          "incorrect": "This time... missed! To increase our impact, we created a hub called inVision, where we fight against unfair resource distribution in education, creative industries, startups, and sports, supporting underprivileged groups. But we haven't organized parties yet."
         }
-      }
-    },
-    {
-      "id": 9,
-      "text": {
-        "en": "What unusual items, or maybe even animals, have passengers forgotten in inDrive?",
-        "ru": "Какие необычные предметы, а может даже и животные когда-то были забыты пассажирами в inDrive?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 9,
+        "text": "What unusual items, or maybe even animals, have passengers forgotten in inDrive?",
+        "options": [
           "A case with $1,000,000, an opossum, and a collector's edition of comics",
           "Toothpaste, a magic ball, the World Cup",
           "2 wedding dresses in one day, dentures, a live duck"
         ],
-        "ru": [
-          "Кейс с 1 000 000$, опоссум и коллекционное издание комиксов",
-          "Зубная паста, магический шар, кубок мира (The World Cup)",
-          "2 свадебных платья в один день, вставная челюсть, живая утка"
-        ]
-      },
-      "correctAnswer": {
-        "en": "2 wedding dresses in one day, dentures, a live duck",
-        "ru": "2 свадебных платья в один день, вставная челюсть, живая утка"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Right on target! inDrive passengers sometimes leave the most unexpected things in cars, and once someone even forgot a live duck!",
-          "ru": "Прямо в цель! Пассажиры inDrive иногда оставляют в машинах самые неожиданные вещи, а один раз кто-то даже забыл живую утку!"
-        },
-        "incorrect": {
-          "en": "You almost guessed it! inDrive passengers once left dentures, a real duck, and even 2 wedding dresses in one day. Imagine the drivers' faces when they found all this!",
-          "ru": "Вы почти угадали! Пассажиры inDrive когда-то забывали вставную челюсть, настоящую утку и даже 2 свадебных платья в один день. Представляете лица водителей, которые все это находили?"
+        "correctAnswer": "2 wedding dresses in one day, dentures, a live duck",
+        "feedback": {
+          "correct": "Right on target! inDrive passengers sometimes leave the most unexpected things in cars, and once someone even forgot a live duck!",
+          "incorrect": "You almost guessed it! inDrive passengers once left dentures, a real duck, and even 2 wedding dresses in one day. Imagine the drivers' faces when they found all this!"
         }
-      }
-    },
-    {
-      "id": 10,
-      "text": {
-        "en": "At one point, inDrive celebrated 200 million rides worldwide. When did this happen?",
-        "ru": "В один момент компания inDrive отметила 200 миллионов поездок по всему миру. Когда это случилось?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 10,
+        "text": "At one point, inDrive celebrated 200 million rides worldwide. When did this happen?",
+        "options": [
           "September 2022",
           "November 2023",
           "June 2019"
         ],
-        "ru": [
-          "Сентябрь 2022",
-          "Ноябрь 2023",
-          "Июнь 2019"
-        ]
-      },
-      "correctAnswer": {
-        "en": "November 2023",
-        "ru": "Ноябрь 2023"
-      },
-      "feedback": {
-        "correct": {
-          "en": "You are absolutely right! And now there are even more rides!",
-          "ru": "Вы совершенно правы! А сейчас поездок стало еще больше!"
-        },
-        "incorrect": {
-          "en": "This happened in November 2023. 200,000,000 rides, can you imagine?",
-          "ru": "Это произошло в ноябре 2023 года. 200 000 000 поездок, представляете?"
+        "correctAnswer": "November 2023",
+        "feedback": {
+          "correct": "You are absolutely right! And now there are even more rides!",
+          "incorrect": "This happened in November 2023. 200,000,000 rides, can you imagine?"
         }
-      }
-    },
-    {
-      "id": 11,
-      "text": {
-        "en": "Once, one of inDrive's passengers was a superhero. Who do you think it was?",
-        "ru": "Однажды одним из пассажиров inDrive был супергерой. Как вы думаете, кто именно?"
       },
-      "options": {
-        "en": [
+      {
+        "id": 11,
+        "text": "Once, one of inDrive's passengers was a superhero. Who do you think it was?",
+        "options": [
           "Spider-Man",
           "Batman",
           "Wolverine"
         ],
-        "ru": [
+        "correctAnswer": "Spider-Man",
+        "feedback": {
+          "correct": "Ha-ha! Yes, it was Spider-Man! Do you know this story? Once, an old lady got a ride with a man in a Spider-Man costume. The trip must have been unforgettable!",
+          "incorrect": "You were close! It was... Spider-Man! Once, on an intercity trip, an old lady got an unexpected fellow traveler - a passenger in a Spider-Man costume. There is even a video of it on the internet!"
+        }
+      }
+    ],
+    "results": {
+      "9-11": "Experienced adventurer. You navigate the terrain excellently and can solve even the most complex puzzle.",
+      "6-8": "Brave adventurer. Always ready for new discoveries and not afraid to experiment.",
+      "2-5": "Young traveler with all roads open. Fly with the wind, the most wonderful awaits ahead!",
+      "0-1": "Hmm... Trying to trick us? We are sure you know a lot about inDrive. Let's try again?"
+    }
+  },
+  "ru": {
+    "intro": "Привет!\n\nГотов отправиться в путешествие по истории inDrive?\nВ конце игры тебя ждет приятный сюрприз!",
+    "questions": [
+      {
+        "id": 1,
+        "text": "В каком городе началась история inDrive?",
+        "options": [
+          "Якутск",
+          "Астана",
+          "Нью-Йорк"
+        ],
+        "correctAnswer": "Якутск",
+        "feedback": {
+          "correct": "Все верно! История inDrive началась в Якутске — одном из самых холодных городов мира.",
+          "incorrect": "Почти угадали! На самом деле это — Якутск. inDrive появился в ответ на несправедливость. Под Новый год, в самые морозные дни, местные транспортные компании удвоили свои тарифы, поставив в затруднительное положение жителей города. Так возник inDrive — приложение, где каждый может совершить поездку по справедливой цене."
+        }
+      },
+      {
+        "id": 2,
+        "text": "В 2014 году inDrive вышел на новый уровень и появился еще в одной стране. Догадаетесь, в какой?",
+        "options": [
+          "Мексика",
+          "Казахстан",
+          "Индонезия"
+        ],
+        "correctAnswer": "Казахстан",
+        "feedback": {
+          "correct": "Так и есть, это был Казахстан! А через 4 года мы уже вышли на рынок Центральной и Южной Америки.",
+          "incorrect": "Это был Казахстан. А уже через 4 года мы вышли на рынок Центральной и Южной Америки."
+        }
+      },
+      {
+        "id": 3,
+        "text": "Как вы думаете, в каком из городов есть inDrive?",
+        "options": [
+          "Болт-Йорк",
+          "Уберландия",
+          "Геттсбург"
+        ],
+        "correctAnswer": "Уберландия",
+        "feedback": {
+          "correct": "Правильно, это Уберландия! Если когда-нибудь соберетесь в этот бразильский городок — знайте, что там вы всегда сможете договориться о цене поездки.",
+          "incorrect": "Это Уберландия! Да-да, это настоящий город в Бразилии. Ну а Геттсбург и Болт-Йорк мы выдумали."
+        }
+      },
+      {
+        "id": 4,
+        "text": "Как вы думаете, сколько всего городов охватывает inDrive?",
+        "options": [
+          "463",
+          "652",
+          "749"
+        ],
+        "correctAnswer": "749",
+        "feedback": {
+          "correct": "Угадали, 749! Но мы всегда стремимся к большему!",
+          "incorrect": "Упс, не угадали! На данный момент inDrive присутствует в 749 городах. Но планы у нас, конечно же, грандиозные."
+        }
+      },
+      {
+        "id": 5,
+        "text": "Чем отличается inDrive от похожих приложений?",
+        "options": [
+          "В inDrive можно договориться о цене",
+          "В inDrive можно выбрать водителя по знаку зодиака",
+          "В inDrive можно заказать вертолет"
+        ],
+        "correctAnswer": "В inDrive можно договориться о цене",
+        "feedback": {
+          "correct": "Все так! Справедливая цена поездки — главное отличие inDrive от других приложений.",
+          "incorrect": "В первую очередь мы — за социальную справедливость. Поэтому в inDrive вы всегда можете договориться о цене."
+        }
+      },
+      {
+        "id": 6,
+        "text": "В чем заключается главная миссия inDrive?",
+        "options": [
+          "Борьба с несправедливостью",
+          "Познакомить всех водителей и пассажиров в городах",
+          "Приучить пассажиров не хлопать дверью"
+        ],
+        "correctAnswer": "Борьба с несправедливостью",
+        "feedback": {
+          "correct": "В точку! Мы стремимся к тому, чтобы люди и сообщества во всём мире имели равные и справедливые возможности для развития и процветания. Ну а вы явно придерживаетесь наших ценностей.",
+          "incorrect": "Главная миссия inDrive — борьба с несправедливостью. Люди и сообщества во всём мире должны иметь равные и справедливые возможности для развития и процветания."
+        }
+      },
+      {
+        "id": 7,
+        "text": "В апреле 2021 года inDrive получил сказочный статус стартапа. Как называется этот статус?",
+        "options": [
+          "Единорог",
+          "Грифон",
+          "Дракон"
+        ],
+        "correctAnswer": "Единорог",
+        "feedback": {
+          "correct": "Бинго! Вы явно в курсе бизнес-терминов.",
+          "incorrect": "Никаких сказок, у нас тут все серьезно! В 2021 году inDrive получил статус единорога — компании, рыночная оценка стоимости которой составляет более 1 миллиарда долларов."
+        }
+      },
+      {
+        "id": 8,
+        "text": "inDrive поддерживает много различных социальных инициатив. Чем из перечисленного НЕ занимается inDrive?",
+        "options": [
+          "Образовательные проекты для подростков и спортивные секции",
+          "Кинофестиваль и поддержка стартапов",
+          "Организация локальных вечеринок для пользователей по всему миру"
+        ],
+        "correctAnswer": "Организация локальных вечеринок для пользователей по всему миру",
+        "feedback": {
+          "correct": "Супер! Да, с помощью нашего хаба inVision мы поддерживаем различные социальные инициативы: образовательные проекты для подростков, различные спортивные секции, стартапы и даже кинофестиваль.",
+          "incorrect": "В этот раз… мимо! Чтобы увеличить наше влияние, мы создали хаб под названием inVision, где боремся с несправедливым распределением ресурсов в образовании, креативных индустриях, стартапах и спорте, поддерживая малообеспеченные группы. Но вечеринки пока не организовывали."
+        }
+      },
+      {
+        "id": 9,
+        "text": "Какие необычные предметы, а может даже и животные когда-то были забыты пассажирами в inDrive?",
+        "options": [
+          "Кейс с 1 000 000$, опоссум и коллекционное издание комиксов",
+          "Зубная паста, магический шар, кубок мира (The World Cup)",
+          "2 свадебных платья в один день, вставная челюсть, живая утка"
+        ],
+        "correctAnswer": "2 свадебных платья в один день, вставная челюсть, живая утка",
+        "feedback": {
+          "correct": "Прямо в цель! Пассажиры inDrive иногда оставляют в машинах самые неожиданные вещи, а один раз кто-то даже забыл живую утку!",
+          "incorrect": "Вы почти угадали! Пассажиры inDrive когда-то забывали вставную челюсть, настоящую утку и даже 2 свадебных платья в один день. Представляете лица водителей, которые все это находили?"
+        }
+      },
+      {
+        "id": 10,
+        "text": "В один момент компания inDrive отметила 200 миллионов поездок по всему миру. Когда это случилось?",
+        "options": [
+          "Сентябрь 2022",
+          "Ноябрь 2023",
+          "Июнь 2019"
+        ],
+        "correctAnswer": "Ноябрь 2023",
+        "feedback": {
+          "correct": "Вы совершенно правы! А сейчас поездок стало еще больше!",
+          "incorrect": "Это произошло в ноябре 2023 года. 200 000 000 поездок, представляете?"
+        }
+      },
+      {
+        "id": 11,
+        "text": "Однажды одним из пассажиров inDrive был супергерой. Как вы думаете, кто именно?",
+        "options": [
           "Человек-паук",
           "Бэтмен",
           "Росомаха"
-        ]
-      },
-      "correctAnswer": {
-        "en": "Spider-Man",
-        "ru": "Человек-паук"
-      },
-      "feedback": {
-        "correct": {
-          "en": "Ha-ha! Yes, it was Spider-Man! Do you know this story? Once, an old lady got a ride with a man in a Spider-Man costume. The trip must have been unforgettable!",
-          "ru": "Ха-ха! Да, это был Человек-паук! Знаете эту историю? Как-то раз одной бабушке в попутчики попался мужчина в костюме Человека-паука. Наверняка поездка оказалась незабываемо веселой!"
-        },
-        "incorrect": {
-          "en": "You were close! It was... Spider-Man! Once, on an intercity trip, an old lady got an unexpected fellow traveler - a passenger in a Spider-Man costume. There is even a video of it on the internet!",
-          "ru": "Вы были близко! Это был… Человек-паук! Однажды в междугородней поездке бабушке попался неожиданный попутчик — пассажир в костюме Человека-паука. Где-то в интернете даже есть ролик!"
+        ],
+        "correctAnswer": "Человек-паук",
+        "feedback": {
+          "correct": "Ха-ха! Да, это был Человек-паук! Знаете эту историю? Как-то раз одной бабушке в попутчики попался мужчина в костюме Человека-паука. Наверняка поездка оказалась незабываемо веселой!",
+          "incorrect": "Вы были близко! Это был… Человек-паук! Однажды в междугородней поездке бабушке попался неожиданный попутчик — пассажир в костюме Человека-паука. Где-то в интернете даже есть ролик!"
         }
       }
-    }
-  ],
-  "results": {
-    "9-11": {
-      "en": "Experienced adventurer. You navigate the terrain excellently and can solve even the most complex puzzle.",
-      "ru": "Опытный искатель приключений. Отлично ориентируетесь на местности и можете разгадать даже самую сложную головоломку."
-    },
-    "6-8": {
-      "en": "Brave adventurer. Always ready for new discoveries and not afraid to experiment.",
-      "ru": "Смелый авантюрист. Всегда готовы к новым открытиям и не боитесь экспериментов."
-    },
-    "2-5": {
-      "en": "Young traveler with all roads open. Fly with the wind, the most wonderful awaits ahead!",
-      "ru": "Юный путник, которому открыты все дороги. Летите по ветру, все самое чудесное ждет впереди!"
-    },
-    "0-1": {
-      "en": "Hmm... Trying to trick us? We are sure you know a lot about inDrive. Let's try again?",
-      "ru": "Хмм… Думали нас провести? Мы уверены, что вы много знаете об inDrive. Попробуем еще раз?"
+    ],
+    "results": {
+      "9-11": "Опытный искатель приключений. Отлично ориентируетесь на местности и можете разгадать даже самую сложную головоломку.",
+      "6-8": "Смелый авантюрист. Всегда готовы к новым открытиям и не боитесь экспериментов.",
+      "2-5": "Юный путник, которому открыты все дороги. Летите по ветру, все самое чудесное ждет впереди!",
+      "0-1": "Хмм… Думали нас провести? Мы уверены, что вы много знаете об inDrive. Попробуем еще раз?"
     }
   }
 }
