@@ -5,7 +5,7 @@ i18next
     lng: 'en',
     fallbackLng: 'en',
     backend: {
-      loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/{{lng}}.json'
+      loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
     }
   }, function (err, t) {
     if (err) return console.error(err);
