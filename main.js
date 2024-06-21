@@ -28,6 +28,8 @@ function startVideoAndAudio() {
 function updateContent() {
   $('#intro').text(i18next.t('intro.text'));
   $('#start').text(i18next.t('intro.button'));
+  $('#restart-btn').text(i18next.t('main.tryAgainButton'))
+  $('#quiz-next-btn').text(i18next.t('main.nextButton'))
   if (currentQuestion > 0 && currentQuestion < stopTimes.length - 1) {
     if ($('.quiz_body').is(':visible')) {
       showQuestion(currentQuestion); // Refresh current question in new language
@@ -40,10 +42,10 @@ function updateContent() {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 5.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
-  { start: 12, end: 16 },
+  { start: 12, end: 15 },
   { start: 30, end: 34 },
   { start: 45, end: 49 },
   { start: 60, end: 64 },
