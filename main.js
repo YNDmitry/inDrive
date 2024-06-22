@@ -41,7 +41,7 @@ function updateContent() {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 1.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 15.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -141,7 +141,9 @@ function showQuestion(index) {
               video.currentTime = stopTimes[currentQuestion - 1].end;
               video.play();
             } else {
-              showFinalResult();
+              setTimeout(() => {
+                showFinalResult();
+              }, 2000)
             }
           });
         });
@@ -159,19 +161,25 @@ function showFinalResult() {
   $('#quiz').hide();
   const totalQuestions = i18next.t('questions', { returnObjects: true }).length;
   let resultText = "";
+  let resultImageUrl = ""; // Новый URL изображения
 
   if (score >= 9) {
     resultText = i18next.t('results.9-11');
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96eea7a382f61b879de_9-11.webp";
   } else if (score >= 6) {
     resultText = i18next.t('results.6-8');
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96e996fd8f2f3282c61_6-8.webp";
   } else if (score >= 2) {
     resultText = i18next.t('results.2-5');
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96e796ab22f0bd722c3_2-5.webp";
   } else {
     resultText = i18next.t('results.0-1');
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96e983da61b62bddc06_0-1.webp";
   }
 
   $('#global-result').show()
-  $('#global-result .quiz_message-p').text(`Your score: ${score}/${totalQuestions}\n${resultText}`)
+  $('#global-result .quiz_message-p').text(`${score}/${totalQuestions}: ${resultText}`);
+  $('#result-sticker').attr('src', resultImageUrl); // Установка URL изображения
 
   // Show restart button
   $('#restart-btn').off('click').on('click', function () {
