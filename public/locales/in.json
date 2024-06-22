@@ -1,0 +1,172 @@
+{
+  "main": {
+    "tryAgainButton": "Mau mencoba lagi?",
+    "nextButton": "Lanjutkan"
+  },
+  "intro": {
+    "text": "Halo!\n\nApakah kamu siap untuk memulai perjalanan melalui sejarah inDrive? Sebuah kejutan menyenangkan menunggumu di akhir permainan!",
+    "button": "Ayo mulai!"
+  },
+  "questions": [
+    {
+      "id": 0,
+      "text": "Di kota mana cerita inDrive dimulai?",
+      "options": [
+        "Yakutsk",
+        "Astana",
+        "New York"
+      ],
+      "correctAnswer": "Yakutsk",
+      "feedback": {
+        "correct": "Benar sekali! Cerita inDrive dimulai di Yakutsk, salah satu kota terdingin di dunia.",
+        "incorrect": "Kamu hampir benar! Sebenarnya, itu Yakutsk. inDrive lahir sebagai respons terhadap ketidakadilan. Suatu hari di Malam Tahun Baru, pada waktu terdingin dalam setahun, perusahaan transportasi lokal menggandakan tarif mereka, menempatkan warga dalam posisi yang sulit. Begitulah cara inDrive muncul. Aplikasi di mana semua orang bisa mendapatkan tumpangan dengan harga yang adil."
+      }
+    },
+    {
+      "id": 1,
+      "text": "Pada tahun 2014, inDrive mencapai tingkat baru dan muncul di satu negara lagi. Bisakah kamu menebak yang mana?",
+      "options": [
+        "Meksiko",
+        "Kazakhstan",
+        "Indonesia"
+      ],
+      "correctAnswer": "Kazakhstan",
+      "feedback": {
+        "correct": "Benar, itu Kazakhstan! Dan 4 tahun kemudian, kami memasuki pasar Amerika Tengah dan Selatan.",
+        "incorrect": "Itu Kazakhstan. Dan hanya 4 tahun kemudian, kami memasuki pasar Amerika Tengah dan Selatan."
+      }
+    },
+    {
+      "id": 2,
+      "text": "Menurutmu, di kota mana inDrive tersedia?",
+      "options": [
+        "Bolt-York",
+        "Uberlândia",
+        "Gettsburg"
+      ],
+      "correctAnswer": "Uberlândia",
+      "feedback": {
+        "correct": "Benar, itu Uberlândia! Jika kamu pernah berada di kota Brasil yang indah ini, ketahuilah bahwa kamu selalu bisa menegosiasikan harga perjalananmu di sana.",
+        "incorrect": "Itu Uberlândia! Ya, itu kota nyata di Brasil. Gettsburg dan Bolt-York adalah ciptaan kami."
+      }
+    },
+    {
+      "id": 3,
+      "text": "Menurutmu, berapa banyak kota yang dilayani oleh inDrive?",
+      "options": [
+        "463",
+        "652",
+        "749"
+      ],
+      "correctAnswer": "749",
+      "feedback": {
+        "correct": "Benar, 749! Tapi kami selalu berusaha lebih!",
+        "incorrect": "Ups, jawaban salah! Saat ini, inDrive hadir di 749 kota. Tapi tentu saja, kami memiliki rencana besar."
+      }
+    },
+    {
+      "id": 4,
+      "text": "Apa perbedaan antara inDrive dan aplikasi serupa lainnya?",
+      "options": [
+        "Kamu bisa menegosiasikan harga di inDrive",
+        "Kamu bisa memilih pengemudi berdasarkan zodiaknya di inDrive",
+        "Kamu bisa memesan helikopter di inDrive"
+      ],
+      "correctAnswer": "Kamu bisa menegosiasikan harga di inDrive",
+      "feedback": {
+        "correct": "Benar sekali! Harga yang adil untuk perjalanan adalah perbedaan utama antara inDrive dan aplikasi lainnya.",
+        "incorrect": "Yang terutama, kami mendukung keadilan sosial. Itulah sebabnya kamu selalu bisa menegosiasikan harga di inDrive."
+      }
+    },
+    {
+      "id": 5,
+      "text": "Apa misi utama inDrive?",
+      "options": [
+        "Melawan ketidakadilan",
+        "Memperkenalkan semua pengemudi dan penumpang di kota",
+        "Mengajari semua penumpang untuk tidak membanting pintu"
+      ],
+      "correctAnswer": "Melawan ketidakadilan",
+      "feedback": {
+        "correct": "Kamu benar! Kami berusaha menciptakan peluang yang setara dan adil bagi orang-orang dan komunitas di seluruh dunia untuk berkembang. Sepertinya kamu berbagi nilai-nilai kami.",
+        "incorrect": "Misi utama inDrive adalah melawan ketidakadilan. Orang-orang dan komunitas di seluruh dunia harus memiliki peluang yang setara dan adil untuk berkembang."
+      }
+    },
+    {
+      "id": 6,
+      "text": "Pada April 2021, inDrive menerima status startup dongeng. Apa nama status ini?",
+      "options": [
+        "Unicorn",
+        "Griffin",
+        "Dragon"
+      ],
+      "correctAnswer": "Unicorn",
+      "feedback": {
+        "correct": "Bingo! Kamu jelas memahami istilah bisnis.",
+        "incorrect": "Tidak ada dongeng, kami serius di sini! Pada tahun 2021, inDrive menerima status unicorn — sebuah perusahaan yang valuasi pasarnya melebihi $1 miliar."
+      }
+    },
+    {
+      "id": 7,
+      "text": "inDrive mendukung banyak inisiatif sosial yang berbeda. Yang mana dari berikut ini yang BUKAN dilakukan oleh inDrive?",
+      "options": [
+        "Proyek pendidikan untuk remaja dan bagian olahraga",
+        "Festival film dan mendukung startup",
+        "Menyelenggarakan pesta lokal untuk pengguna di seluruh dunia"
+      ],
+      "correctAnswer": "Menyelenggarakan pesta lokal untuk pengguna di seluruh dunia",
+      "feedback": {
+        "correct": "Kerja bagus! Ya, kami mendukung berbagai inisiatif sosial melalui hub inVision kami: proyek pendidikan untuk remaja, bagian olahraga yang berbeda, startup, dan bahkan festival film.",
+        "incorrect": "Bukan kali ini! Untuk memperkuat dampak kami, kami telah menciptakan hub inVision di mana kami menangani distribusi sumber daya yang tidak adil dalam pendidikan, industri kreatif, startup, dan olahraga, mendukung kelompok berpenghasilan rendah. Tapi kami belum mengadakan pesta."
+      }
+    },
+    {
+      "id": 8,
+      "text": "Apa saja barang paling tidak biasa, atau bahkan hewan, yang pernah tertinggal di mobil inDrive?",
+      "options": [
+        "Sebuah koper berisi $1.000.000, seekor opossum, dan edisi koleksi buku komik",
+        "Pasta gigi, bola kristal, Piala Dunia",
+        "2 gaun pengantin pada hari yang sama, gigi palsu, seekor bebek asli"
+      ],
+      "correctAnswer": "2 gaun pengantin pada hari yang sama, gigi palsu, seekor bebek asli",
+      "feedback": {
+        "correct": "Kamu menebaknya! Penumpang inDrive kadang-kadang meninggalkan barang-barang yang paling tidak terduga di mobil, dan sekali, seseorang bahkan lupa seekor bebek hidup!",
+        "incorrect": "Kamu hampir benar! Penumpang inDrive pernah melupakan gigi palsu, seekor bebek asli, dan bahkan 2 gaun pengantin dalam satu hari. Bisa kamu bayangkan wajah para pengemudi ketika menemukan semua itu?"
+      }
+    },
+    {
+      "id": 9,
+      "text": "Suatu hari inDrive merayakan 200 juta perjalanan di seluruh dunia. Kapan ini terjadi?",
+      "options": [
+        "September 2022",
+        "November 2023",
+        "Juni 2019"
+      ],
+      "correctAnswer": "November 2023",
+      "feedback": {
+        "correct": "Kamu benar sekali! Dan sekarang ada lebih banyak perjalanan lagi!",
+        "incorrect": "Itu terjadi pada November 2023. 200.000.000 perjalanan, bisa kamu bayangkan?"
+      }
+    },
+    {
+      "id": 10,
+      "text": "Suatu ketika, seorang superhero adalah pengguna inDrive. Menurutmu siapa itu?",
+      "options": [
+        "Spider-Man",
+        "Batman",
+        "Wolverine"
+      ],
+      "correctAnswer": "Spider-Man",
+      "feedback": {
+        "correct": "Ha-ha! Ya, itu Spider-Man! Apakah kamu tahu ceritanya? Suatu kali seorang nenek bertemu seorang pria berpakaian Spider-Man di inDrive. Perjalanan itu pasti sangat lucu dan tak terlupakan!",
+        "incorrect": "Kamu hampir benar! Itu adalah… Spider-Man! Suatu ketika, dalam perjalanan antar kota, seorang nenek mendapatkan teman perjalanan yang tak terduga — seorang penumpang dengan kostum Spider-Man. Bahkan ada video tentang itu di suatu tempat di internet."
+      }
+    }
+  ],
+  "results": {
+    "9-11": "Petualang berpengalaman. Kamu hebat dalam navigasi dan bisa menyelesaikan teka-teki yang paling sulit sekalipun.",
+    "6-8": "Petualang berani. Selalu siap untuk penemuan baru dan tidak takut bereksperimen.",
+    "2-5": "Pelancong muda dengan semua jalan terbuka untukmu. Terbanglah dengan angin, semua hal paling indah ada di depan!",
+    "0-1": "Hmm... Apakah kamu pikir kamu bisa mengelabui kami? Kami yakin kamu tahu banyak tentang inDrive. Mau mencoba lagi?"
+  }
+}

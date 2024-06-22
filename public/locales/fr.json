@@ -1,0 +1,172 @@
+{
+  "main": {
+    "tryAgainButton": "Vous voulez essayer à nouveau?",
+    "nextButton": "Continuer"
+  },
+  "intro": {
+    "text": "Salut!\n\nÊtes-vous prêt à embarquer pour un voyage à travers l'histoire d’inDrive? Une délicieuse surprise vous attend à la fin du jeu!",
+    "button": "Allons-y!"
+  },
+  "questions": [
+    {
+      "id": 0,
+      "text": "Dans quelle ville l'histoire d’inDrive a-t-elle commencé?",
+      "options": [
+        "Yakoutsk",
+        "Astana",
+        "New York"
+      ],
+      "correctAnswer": "Yakoutsk",
+      "feedback": {
+        "correct": "C'est exact! L'histoire d’inDrive a commencé à Yakoutsk, l'une des villes les plus froides du monde.",
+        "incorrect": "Vous chauffez! En fait, c'est Yakoutsk. inDrive est né en réponse à une injustice. Un jour, à la veille du Nouvel An, au moment le plus froid de l'année, les compagnies de transport locales ont doublé leurs tarifs, mettant les citoyens dans une situation difficile. C'est ainsi qu'inDrive est apparu. L'application où tout le monde peut obtenir une course à un prix équitable."
+      }
+    },
+    {
+      "id": 1,
+      "text": "En 2014, inDrive a atteint un nouveau niveau et est apparu dans un autre pays. Pouvez-vous deviner lequel?",
+      "options": [
+        "Mexique",
+        "Kazakhstan",
+        "Indonésie"
+      ],
+      "correctAnswer": "Kazakhstan",
+      "feedback": {
+        "correct": "C'est exact, c'était le Kazakhstan! Et 4 ans plus tard, nous sommes entrés sur le marché de l'Amérique centrale et du sud.",
+        "incorrect": "C'était le Kazakhstan. Et seulement 4 ans plus tard, nous sommes entrés sur le marché de l'Amérique centrale et du sud."
+      }
+    },
+    {
+      "id": 2,
+      "text": "Selon vous, laquelle de ces villes a inDrive?",
+      "options": [
+        "Bolt-York",
+        "Uberlândia",
+        "Gettsburg"
+      ],
+      "correctAnswer": "Uberlândia",
+      "feedback": {
+        "correct": "C'est exact, c'est Uberlândia! Si vous vous trouvez un jour dans cette charmante ville brésilienne, sachez que vous pouvez toujours négocier le prix de votre course là-bas.",
+        "incorrect": "C'est Uberlândia! Oui, c'est une ville réelle au Brésil. Gettsburg et Bolt-York sont nos inventions."
+      }
+    },
+    {
+      "id": 3,
+      "text": "Selon vous, combien de villes sont couvertes par inDrive?",
+      "options": [
+        "463",
+        "652",
+        "749"
+      ],
+      "correctAnswer": "749",
+      "feedback": {
+        "correct": "Vous avez raison, 749! Mais nous visons toujours plus haut!",
+        "incorrect": "Oups, mauvaise réponse! inDrive est actuellement présent dans 749 villes. Mais bien sûr, nous avons de grands projets."
+      }
+    },
+    {
+      "id": 4,
+      "text": "Quelle est la différence entre inDrive et des applications similaires?",
+      "options": [
+        "Vous pouvez négocier le prix sur inDrive",
+        "Vous pouvez choisir un chauffeur selon son signe astrologique sur inDrive",
+        "Vous pouvez commander un hélicoptère sur inDrive"
+      ],
+      "correctAnswer": "Vous pouvez négocier le prix sur inDrive",
+      "feedback": {
+        "correct": "C'est exact! Un prix équitable pour une course est la principale différence entre inDrive et les autres applications.",
+        "incorrect": "Avant tout, nous sommes pour la justice sociale. C'est pourquoi vous pouvez toujours négocier un prix sur inDrive."
+      }
+    },
+    {
+      "id": 5,
+      "text": "Quelle est la mission principale d’inDrive?",
+      "options": [
+        "Lutter contre l'injustice",
+        "Présenter tous les chauffeurs et les passagers dans les villes",
+        "Apprendre à tous les passagers à ne pas claquer la porte"
+      ],
+      "correctAnswer": "Lutter contre l'injustice",
+      "feedback": {
+        "correct": "Vous avez tout à fait raison! Nous nous efforçons de créer des opportunités égales et justes pour les personnes et les communautés du monde entier. Il semble que vous partagez nos valeurs.",
+        "incorrect": "La mission principale d’inDrive est de lutter contre l'injustice. Les personnes et les communautés du monde entier devraient avoir des opportunités égales et justes pour prospérer."
+      }
+    },
+    {
+      "id": 6,
+      "text": "En avril 2021, inDrive a reçu le statut de startup féerique. Comment s'appelle ce statut?",
+      "options": [
+        "Licorne",
+        "Griffin",
+        "Dragon"
+      ],
+      "correctAnswer": "Licorne",
+      "feedback": {
+        "correct": "Bingo! Vous êtes clairement à jour sur les termes commerciaux.",
+        "incorrect": "Pas de contes de fées, nous sommes sérieux ici! En 2021, inDrive a reçu le statut de licorne — une entreprise dont la valorisation dépasse 1 milliard de dollars."
+      }
+    },
+    {
+      "id": 7,
+      "text": "inDrive soutient de nombreuses initiatives sociales différentes. Laquelle de ces actions n'est pas réalisée par inDrive?",
+      "options": [
+        "Projets éducatifs pour adolescents et sections sportives",
+        "Festival de cinéma et soutien aux startups",
+        "Organisation de fêtes locales pour les utilisateurs du monde entier"
+      ],
+      "correctAnswer": "Organisation de fêtes locales pour les utilisateurs du monde entier",
+      "feedback": {
+        "correct": "Super boulot! Oui, nous soutenons diverses initiatives sociales à travers notre hub inVision: projets éducatifs pour adolescents, différentes sections sportives, startups, et même un festival de cinéma.",
+        "incorrect": "Pas cette fois! Pour amplifier notre impact, nous avons créé un hub inVision où nous nous attaquons à la répartition inéquitable des ressources dans l'éducation, les industries créatives, les startups et le sport, en soutenant les groupes à faible revenu. Mais nous n'avons pas encore organisé de fêtes."
+      }
+    },
+    {
+      "id": 8,
+      "text": "Quels sont certains des objets les plus inhabituels, voire des animaux, qui ont été laissés dans les voitures inDrive?",
+      "options": [
+        "Une mallette avec 1 million de dollars, un opossum et une édition de collection de bandes dessinées",
+        "Dentifrice, boule de cristal, la Coupe du Monde",
+        "2 robes de mariée le même jour, des prothèses dentaires, un vrai canard"
+      ],
+      "correctAnswer": "2 robes de mariée le même jour, des prothèses dentaires, un vrai canard",
+      "feedback": {
+        "correct": "Vous avez deviné! Les passagers d'inDrive laissent parfois les choses les plus inattendues dans les voitures, et une fois, quelqu'un a même oublié un canard vivant!",
+        "incorrect": "Vous êtes tout près! Les passagers d'inDrive ont oublié des prothèses dentaires, un vrai canard, et même 2 robes de mariée le même jour. Pouvez-vous imaginer la tête des chauffeurs quand ils ont trouvé tout ça?"
+      }
+    },
+    {
+      "id": 9,
+      "text": "Un jour, inDrive a célébré 200 millions de trajets dans le monde entier. Quand cela s'est-il produit?",
+      "options": [
+        "Septembre 2022",
+        "Novembre 2023",
+        "Juin 2019"
+      ],
+      "correctAnswer": "Novembre 2023",
+      "feedback": {
+        "correct": "Vous avez absolument raison! Et maintenant, il y a encore plus de trajets!",
+        "incorrect": "Ça s'est passé en novembre 2023. 200 000 000 de trajets, pouvez-vous imaginer?"
+      }
+    },
+    {
+      "id": 10,
+      "text": "Une fois, un super-héros était un utilisateur d'inDrive. Qui pensez-vous que c'était?",
+      "options": [
+        "Spider-Man",
+        "Batman",
+        "Wolverine"
+      ],
+      "correctAnswer": "Spider-Man",
+      "feedback": {
+        "correct": "Ha-ha! Oui, c'était Spider-Man! Est-ce que vous connaissez l'histoire? Une fois, une grand-mère a rencontré un gars déguisé en Spider-Man dans inDrive. Ce trajet devait être inoubliable et amusant!",
+        "incorrect": "Vous étiez si près! C'était… Spider-Man! Une fois, lors d'un trajet interurbain, une grand-mère a eu un compagnon de voyage inattendu — un passager en costume de Spider-Man. Il y a même une vidéo de cela quelque part sur Internet!"
+      }
+    }
+  ],
+  "results": {
+    "9-11": "Aventurier expérimenté. Vous êtes excellent en navigation et pouvez résoudre même les puzzles les plus difficiles.",
+    "6-8": "Aventurier courageux. Toujours prêt pour de nouvelles découvertes et n'ayant pas peur d'expérimenter.",
+    "2-5": "Jeune voyageur avec toutes les routes ouvertes devant vous. Volez avec le vent, toutes les choses les plus merveilleuses sont à venir!",
+    "0-1": "Hmm... Vous pensiez pouvoir nous tromper? Nous sommes sûrs que vous en savez beaucoup sur inDrive. Vous voulez essayer à nouveau?"
+  }
+}
