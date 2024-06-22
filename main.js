@@ -19,9 +19,10 @@ $('#start').click(function () {
 });
 
 function startVideoAndAudio() {
-  document.getElementById('main-video').play();
-  document.getElementById('main-audio').play();
-  document.getElementById('car-audio').play();
+  $('#main-clip').show();
+  $('#main-video').get(0).play();
+  $('#main-audio').get(0).play();
+  $('#car-audio').get(0).play();
 }
 
 function updateContent() {
@@ -29,7 +30,7 @@ function updateContent() {
   $('#start').text(i18next.t('intro.button'));
   $('#restart-btn').text(i18next.t('main.tryAgainButton'))
   $('#quiz-next-btn').text(i18next.t('main.nextButton'))
-  if (currentQuestion > 0 && currentQuestion < stopTimes.length - 1) {
+  if (currentQuestion > 0 && currentQuestion < stopTimes.length) {
     if ($('.quiz_body').is(':visible')) {
       showQuestion(currentQuestion); // Refresh current question in new language
     } else if ($('.quiz_result').is(':visible')) {
@@ -41,7 +42,7 @@ function updateContent() {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 15.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -60,51 +61,38 @@ const stopTimes = [
 
 let currentQuestion = 0;
 let score = 0;
-let isLooping = false;
-let loopHandler = null;
 
 video.addEventListener('timeupdate', function () {
-  if (!isLooping && currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
+  if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
     video.pause();
-    if (currentQuestion < stopTimes.length - 1) {
-      showQuestion(currentQuestion);
-      startLooping(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
-    } else {
-      showFinalResult();
-      startLooping(stopTimes[currentQuestion].start, stopTimes[currentQuestion].end);
-    }
+    showPauseClip(currentQuestion);
+    showQuestion(currentQuestion);
   }
 });
 
-function startLooping(start, end) {
-  isLooping = true;
-
-  loopHandler = function () {
-    if (video.currentTime >= end) {
-      video.currentTime = start;
-      video.play();
-    }
-  };
-
-  video.addEventListener('timeupdate', loopHandler);
-
-  // Start playing the video to initiate the loop
-  video.currentTime = start;
-  video.play();
+function showPauseClip(index) {
+  const clip = document.getElementById(`clip-${index}`);
+  if (clip) {
+    $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
+  }
 }
 
-function stopLooping(end) {
-  if (loopHandler) {
-    video.removeEventListener('timeupdate', loopHandler);
-    loopHandler = null;
+function hidePauseClip(index) {
+  const clip = document.getElementById(`clip-${index}`);
+  if (clip) {
+    $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
   }
-  isLooping = false;
-  video.currentTime = end;
-  video.play();
 }
 
 function showQuestion(index) {
-  const question = i18next.t(`questions.${index}`, { returnObjects: true });
+  const questions = i18next.t('questions', { returnObjects: true });
+
+  if (index >= questions.length) {
+    showFinalResult();
+    return;
+  }
+
+  const question = questions[index];
 
   if (!question || !question.options) {
     console.error(`Question or options not found for index: ${index}`);
@@ -121,9 +109,10 @@ function showQuestion(index) {
 
   $('.quiz_button').off('click').on('click', function () {
     const selectedOption = $(this).text();
-    const feedback = selectedOption === question.correctAnswer ? question.feedback.correct : question.feedback.incorrect;
+    const cleanedOption = selectedOption.replace(/^\d+\.\s*/, '');
+    const feedback = cleanedOption === question.correctAnswer ? question.feedback.correct : question.feedback.incorrect;
 
-    if (selectedOption === question.correctAnswer) {
+    if (cleanedOption === question.correctAnswer) {
       score++;
     }
 
@@ -135,15 +124,13 @@ function showQuestion(index) {
       $('#quiz-next-btn').off('click').on('click', function () {
         $('.quiz_result').fadeOut(200, function () {
           $('#quiz').fadeOut(200, function () {
-            stopLooping(stopTimes[currentQuestion].end);
+            hidePauseClip(index);
             currentQuestion++;
-            if (currentQuestion < stopTimes.length - 1) {
+            if (currentQuestion < stopTimes.length) {
               video.currentTime = stopTimes[currentQuestion - 1].end;
               video.play();
             } else {
-              setTimeout(() => {
-                showFinalResult();
-              }, 2000)
+              showFinalResult();
             }
           });
         });
@@ -191,10 +178,10 @@ function restartQuiz() {
   currentQuestion = 0;
   score = 0;
   $('#global-result').hide();
+  $('#clip-11').hide().get(0).pause()
   $('#quiz').fadeOut(200);
 
   video.pause();
-  stopLooping(stopTimes[stopTimes.length - 1].end);
   video.currentTime = 0;
   startVideoAndAudio();
 }
