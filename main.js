@@ -42,7 +42,7 @@ function updateContent() {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 1.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
   { start: 12, end: 15 },
