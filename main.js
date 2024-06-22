@@ -41,7 +41,7 @@ function updateContent() {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 5.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 1.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -112,7 +112,7 @@ function showQuestion(index) {
   }
 
   const questionButtons = question.options.map((option, idx) => `
-    <button class="quiz_button">${idx + 1} ${option}</button>
+    <button class="quiz_button">${idx + 1}. ${option}</button>
   `).join('');
 
   $('#quiz .quiz_message-p').text(question.text);
