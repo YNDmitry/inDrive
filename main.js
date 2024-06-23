@@ -1,5 +1,5 @@
 import Backend from 'i18next-http-backend';
-
+import { fadeInAudio, fadeOutAudio } from './helpers';
 // Функция для проверки загрузки всех ресурсов
 function checkAllResourcesLoaded() {
   if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
@@ -12,8 +12,8 @@ function checkAllResourcesLoaded() {
 // Объект для отслеживания загрузки ресурсов
 const resourcesLoaded = {
   video: false,
-  mainAudio: false,
-  carAudio: false,
+  mainAudio: true,
+  carAudio: true,
   language: false
 };
 
@@ -41,35 +41,22 @@ $(document).ready(function () {
   });
 
   // Отслеживание загрузки основного аудио
-  $('#main-audio').on('loadeddata', function () {
-    resourcesLoaded.mainAudio = true;
-    checkAllResourcesLoaded();
-  });
+  // $('#main-audio').on('loadeddata', function () {
+  //   resourcesLoaded.mainAudio = true;
+  //   checkAllResourcesLoaded();
+  // });
 
   // Отслеживание загрузки аудио автомобиля
-  $('#car-audio').on('loadeddata', function () {
-    resourcesLoaded.carAudio = true;
-    checkAllResourcesLoaded();
-  });
+  // $('#car-audio').on('loadeddata', function () {
+  //   resourcesLoaded.carAudio = true;
+  //   checkAllResourcesLoaded();
+  // });
 
   // Убедитесь, что аудио и видео загружаются
   $('#main-video').get(0).load();
   $('#main-audio').get(0).load();
   $('#car-audio').get(0).load();
 });
-
-// i18next
-//   .use(Backend)
-//   .init({
-//     lng: 'en',
-//     fallbackLng: 'en',
-//     backend: {
-//       loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
-//     }
-//   }, function (err, t) {
-//     if (err) return console.error(err);
-//     updateContent();
-//   });
 
 $('#start').click(function () {
   $('.main-screen').fadeOut(200, function () {
@@ -99,19 +86,26 @@ function updateContent() {
   $('#restart-btn').text(i18next.t('main.tryAgainButton'))
   $('#quiz-next-btn').text(i18next.t('main.nextButton'))
 
+  // Update feedback and result texts if visible
+  if ($('#global-result').is(':visible')) {
+    showFinalResult(); // Обновить результат при переключении языка
+  }
+
+  if ($('.quiz_result').is(':visible')) {
+    $('.quiz_result').hide()
+    showFeedback(); // Обновить feedback при переключении языка
+  }
+
+  // Refresh current question and feedback if needed
   if (currentQuestion > 0 && currentQuestion < stopTimes.length) {
-    if ($('.quiz_body').is(':visible')) {
-      showQuestion(currentQuestion); // Refresh current question in new language
-    } else if ($('.quiz_result').is(':visible')) {
-      showFeedback(); // Refresh feedback in new language
-    }
+    showQuestion(currentQuestion); // Refresh current question in new language
   }
 }
 
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 1.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -143,7 +137,7 @@ function showPauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
-    mainAudio.volume = 0.2
+    fadeOutAudio(mainAudio, 0.2, 200)
   }
 }
 
@@ -151,7 +145,7 @@ function hidePauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
-    mainAudio.volume = 1
+    fadeInAudio(mainAudio, 1, 200)
   }
 }
 
@@ -188,7 +182,8 @@ function showQuestion(index) {
     }
 
     $('#quiz .quiz_body').fadeOut(200, function () {
-      $('.quiz_result-message').data('feedback', feedback);
+      $('.quiz_result-message').data('feedback-key', cleanedOption === question.correctAnswer ? 'correct' : 'incorrect');
+      $('.quiz_result-message').data('feedback-index', question);
       showFeedback();
       $('.quiz_result').fadeIn(200);
 
@@ -211,8 +206,12 @@ function showQuestion(index) {
 }
 
 function showFeedback() {
-  const feedback = $('.quiz_result-message').data('feedback');
-  $('.quiz_result-message').text(feedback);
+  const feedbackKey = $('.quiz_result-message').data('feedback-key');
+  const feedbackIndex = $('.quiz_result-message').data('feedback-index');
+  if (feedbackKey) { // Убедимся, что feedbackKey существует
+    const feedbackText = i18next.t(feedbackIndex['feedback'][feedbackKey]);
+    $('.quiz_result-message').text(feedbackText);
+  }
 }
 
 function showFinalResult() {
@@ -223,16 +222,16 @@ function showFinalResult() {
 
   if (score >= 9) {
     resultText = i18next.t('results.9-11');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96eea7a382f61b879de_9-11.webp";
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7db61f47f75879d25c_9-11.webp";
   } else if (score >= 6) {
     resultText = i18next.t('results.6-8');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96e996fd8f2f3282c61_6-8.webp";
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7e84abff9cd9e4b9e6_6-8.webp";
   } else if (score >= 2) {
     resultText = i18next.t('results.2-5');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96e796ab22f0bd722c3_2-5.webp";
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7de087682c0094fe9e_2-5.webp";
   } else {
     resultText = i18next.t('results.0-1');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/6676b96e983da61b62bddc06_0-1.webp";
+    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7d859c2b8102452b2f_0-1.webp";
   }
 
   $('#global-result').show()
@@ -270,11 +269,15 @@ $('#toggleAudio').click(function () {
   }
 });
 
+i18next.on('languageChanged', () => {
+  console.log('Language changed to:', i18next.language);
+  updateContent();
+});
+
 // Change language
 $('[data-lng]').click(function () {
   const lng = $(this).attr('data-lng');
   i18next.changeLanguage(lng, function (err, t) {
     if (err) return console.error('Error changing language', err);
-    updateContent();
   });
 });
