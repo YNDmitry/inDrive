@@ -1,16 +1,75 @@
 import Backend from 'i18next-http-backend';
-i18next
-  .use(Backend)
-  .init({
-    lng: 'en',
-    fallbackLng: 'en',
-    backend: {
-      loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
-    }
-  }, function (err, t) {
-    if (err) return console.error(err);
-    updateContent();
+
+// Функция для проверки загрузки всех ресурсов
+function checkAllResourcesLoaded() {
+  if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
+    $('.preloader').fadeOut(200, function () {
+      $('.main-screen').fadeIn(200);
+    });
+  }
+}
+
+// Объект для отслеживания загрузки ресурсов
+const resourcesLoaded = {
+  video: false,
+  mainAudio: false,
+  carAudio: false,
+  language: false
+};
+
+$(document).ready(function () {
+  // Инициализация i18next
+  i18next
+    .use(Backend)
+    .init({
+      lng: 'en',
+      fallbackLng: 'en',
+      backend: {
+        loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
+      }
+    }, function (err, t) {
+      if (err) return console.error(err);
+      updateContent();
+      resourcesLoaded.language = true;
+      checkAllResourcesLoaded();
+    });
+
+  // Отслеживание загрузки видео
+  $('#main-video').on('loadeddata', function () {
+    resourcesLoaded.video = true;
+    checkAllResourcesLoaded();
   });
+
+  // Отслеживание загрузки основного аудио
+  $('#main-audio').on('loadeddata', function () {
+    resourcesLoaded.mainAudio = true;
+    checkAllResourcesLoaded();
+  });
+
+  // Отслеживание загрузки аудио автомобиля
+  $('#car-audio').on('loadeddata', function () {
+    resourcesLoaded.carAudio = true;
+    checkAllResourcesLoaded();
+  });
+
+  // Убедитесь, что аудио и видео загружаются
+  $('#main-video').get(0).load();
+  $('#main-audio').get(0).load();
+  $('#car-audio').get(0).load();
+});
+
+// i18next
+//   .use(Backend)
+//   .init({
+//     lng: 'en',
+//     fallbackLng: 'en',
+//     backend: {
+//       loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
+//     }
+//   }, function (err, t) {
+//     if (err) return console.error(err);
+//     updateContent();
+//   });
 
 $('#start').click(function () {
   $('.main-screen').fadeOut(200, function () {
