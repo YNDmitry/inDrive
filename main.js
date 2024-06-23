@@ -92,12 +92,12 @@ function updateContent() {
   }
 
   if ($('.quiz_result').is(':visible')) {
-    $('.quiz_result').hide()
     showFeedback(); // Обновить feedback при переключении языка
   }
 
   // Refresh current question and feedback if needed
-  if (currentQuestion > 0 && currentQuestion < stopTimes.length) {
+  if (currentQuestion >= 0 && currentQuestion < stopTimes.length) {
+    $('.quiz_result').hide()
     showQuestion(currentQuestion); // Refresh current question in new language
   }
 }
@@ -106,6 +106,7 @@ const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
 video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
+video.currentTime = 5.0
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -150,6 +151,7 @@ function hidePauseClip(index) {
 }
 
 function showQuestion(index) {
+  console.log(index)
   const questions = i18next.t('questions', { returnObjects: true });
 
   if (index >= questions.length) {
@@ -175,7 +177,6 @@ function showQuestion(index) {
   $('.quiz_button').off('click').on('click', function () {
     const selectedOption = $(this).text();
     const cleanedOption = selectedOption.replace(/^\d+\.\s*/, '');
-    const feedback = cleanedOption === question.correctAnswer ? question.feedback.correct : question.feedback.incorrect;
 
     if (cleanedOption === question.correctAnswer) {
       score++;
