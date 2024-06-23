@@ -17,6 +17,8 @@ const resourcesLoaded = {
   language: false
 };
 
+let initialLoad = true; // Флаг для отслеживания первого запуска
+
 $(document).ready(function () {
   // Инициализация i18next
   i18next
@@ -95,11 +97,15 @@ function updateContent() {
     showFeedback(); // Обновить feedback при переключении языка
   }
 
-  // Refresh current question and feedback if needed
-  if (currentQuestion < stopTimes.length) {
-    $('.quiz_result').hide()
-    showQuestion(currentQuestion); // Refresh current question in new language
+  if ($('#quiz').is(':visible')) {
+    showQuestion(currentQuestion);
   }
+
+  // // Показываем вопрос только при переключении языка, если это не первый запуск
+  // if (!initialLoad && currentQuestion > 0 && currentQuestion < stopTimes.length) {
+  // }
+
+  initialLoad = false; // Устанавливаем флаг в false после первого запуска
 }
 
 const video = document.getElementById('main-video');
