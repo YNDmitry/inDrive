@@ -82,9 +82,9 @@
       "id": 5,
       "text": "Apa misi utama inDrive?",
       "options": [
-        "Melawan ketidakadilan",
         "Memperkenalkan semua pengemudi dan penumpang di kota",
-        "Mengajari semua penumpang untuk tidak membanting pintu"
+        "Mengajari semua penumpang untuk tidak membanting pintu",
+        "Melawan ketidakadilan"
       ],
       "correctAnswer": "Melawan ketidakadilan",
       "feedback": {

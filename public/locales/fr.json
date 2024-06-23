@@ -82,9 +82,9 @@
       "id": 5,
       "text": "Quelle est la mission principale d’inDrive?",
       "options": [
-        "Lutter contre l'injustice",
         "Présenter tous les chauffeurs et les passagers dans les villes",
-        "Apprendre à tous les passagers à ne pas claquer la porte"
+        "Apprendre à tous les passagers à ne pas claquer la porte",
+        "Lutter contre l'injustice"
       ],
       "correctAnswer": "Lutter contre l'injustice",
       "feedback": {
@@ -96,8 +96,8 @@
       "id": 6,
       "text": "En avril 2021, inDrive a reçu le statut de startup féerique. Comment s'appelle ce statut?",
       "options": [
-        "Licorne",
         "Griffin",
+        "Licorne",
         "Dragon"
       ],
       "correctAnswer": "Licorne",

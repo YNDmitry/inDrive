@@ -82,9 +82,9 @@
       "id": 5,
       "text": "Qual é a principal missão do inDrive?",
       "options": [
-        "Desafiar a injustiça",
         "Apresentar todos os motoristas e passageiros nas cidades",
-        "Ensinar todos os passageiros a não baterem a porta"
+        "Ensinar todos os passageiros a não baterem a porta",
+        "Desafiar a injustiça"
       ],
       "correctAnswer": "Desafiar a injustiça",
       "feedback": {

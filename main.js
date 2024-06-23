@@ -26,10 +26,20 @@ function startVideoAndAudio() {
 }
 
 function updateContent() {
+  const currentLanguage = i18next.language;
+  const isRtlLanguage = ['ar', 'ur'].includes(currentLanguage);
+
+  if (isRtlLanguage) {
+    document.body.classList.add('rtl');
+  } else {
+    document.body.classList.remove('rtl');
+  }
+
   $('#intro').text(i18next.t('intro.text'));
   $('#start').text(i18next.t('intro.button'));
   $('#restart-btn').text(i18next.t('main.tryAgainButton'))
   $('#quiz-next-btn').text(i18next.t('main.nextButton'))
+
   if (currentQuestion > 0 && currentQuestion < stopTimes.length) {
     if ($('.quiz_body').is(':visible')) {
       showQuestion(currentQuestion); // Refresh current question in new language
@@ -42,7 +52,7 @@ function updateContent() {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 1.0; // Установите желаемую скорость воспроизведения для тестирования
+video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -52,8 +62,8 @@ const stopTimes = [
   { start: 75, end: 79 },
   { start: 92, end: 96 },
   { start: 112, end: 116 },
-  { start: 136, end: 141 },
-  { start: 161, end: 165 },
+  { start: 137, end: 141 },
+  { start: 162, end: 165 },
   { start: 180, end: 184 },
   { start: 205, end: 209 },
   { start: 238, end: 245 }
@@ -74,6 +84,7 @@ function showPauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
+    mainAudio.volume = 0.2
   }
 }
 
@@ -81,6 +92,7 @@ function hidePauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
+    mainAudio.volume = 1
   }
 }
 
@@ -191,9 +203,11 @@ $('#toggleAudio').click(function () {
   if (mainAudio.muted) {
     mainAudio.muted = false;
     carAudio.muted = false;
+    $('#sound-rect').hide()
   } else {
     mainAudio.muted = true;
     carAudio.muted = true;
+    $('#sound-rect').show()
   }
 });
 

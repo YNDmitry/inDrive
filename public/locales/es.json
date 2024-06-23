@@ -82,9 +82,9 @@
       "id": 5,
       "text": "¿Cuál es la misión principal de inDrive?",
       "options": [
-        "Desafiar la injusticia",
         "Presentar a todos los conductores y pasajeros en las ciudades",
-        "Enseñar a todos los pasajeros a no cerrar la puerta de golpe"
+        "Enseñar a todos los pasajeros a no cerrar la puerta de golpe",
+        "Desafiar la injusticia"
       ],
       "correctAnswer": "Desafiar la injusticia",
       "feedback": {
@@ -96,8 +96,8 @@
       "id": 6,
       "text": "En abril de 2021, inDrive recibió el estatus de startup de cuento de hadas. ¿Cómo se llama este estatus?",
       "options": [
-        "Unicornio",
         "Grifo",
+        "Unicornio",
         "Dragón"
       ],
       "correctAnswer": "Unicornio",
