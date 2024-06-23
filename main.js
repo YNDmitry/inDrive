@@ -96,7 +96,7 @@ function updateContent() {
   }
 
   // Refresh current question and feedback if needed
-  if (currentQuestion >= 0 && currentQuestion < stopTimes.length) {
+  if (currentQuestion < stopTimes.length) {
     $('.quiz_result').hide()
     showQuestion(currentQuestion); // Refresh current question in new language
   }
@@ -196,6 +196,8 @@ function showQuestion(index) {
             if (currentQuestion < stopTimes.length) {
               video.currentTime = stopTimes[currentQuestion - 1].end;
               video.play();
+              mainAudio.play();
+              carAudio.play();
             } else {
               showFinalResult();
             }
