@@ -1,5 +1,6 @@
 export function fadeOutAudio(audio, targetVolume, duration) {
   let volume = audio.volume;
+  audio.play();
   const step = (volume - targetVolume) / (duration / 10); // Определяем шаг уменьшения громкости
   const fade = setInterval(() => {
     if (volume > targetVolume) {

@@ -70,6 +70,7 @@ function updateContent() {
   $('#start').text(i18next.t('intro.button'));
   $('#restart-btn').text(i18next.t('main.tryAgainButton'));
   $('#quiz-next-btn').text(i18next.t('main.nextButton'));
+  $('#button-gift').text(i18next.t('main.buttonGift'))
 
   if ($('#global-result').is(':visible')) {
     showFinalResult();
@@ -101,7 +102,6 @@ function showPauseClip(index) {
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     fadeOutAudio(mainAudio, 0.2, 200);
-    mainAudio.play()
     carAudio.play();
   }
 }
@@ -112,7 +112,6 @@ function hidePauseClip(index) {
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     fadeInAudio(mainAudio, 1, 200);
-    mainAudio.play()
     carAudio.play();
   }
 }
@@ -212,7 +211,8 @@ function showFinalResult() {
   }
 
   $('#global-result').show();
-  $('#global-result .quiz_message-p').text(`${score}/${totalQuestions}: ${resultText}`);
+  $('#global-result .quiz_message-p').text(`${resultText}`);
+  $('#score').text(`${score}/${totalQuestions}`);
   $('#result-sticker').attr('src', resultImageUrl);
 
   // Обновление атрибута data-title
