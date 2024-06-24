@@ -13,7 +13,7 @@ let currentQuestion = 0;
 let score = 0;
 let answeredQuestions = new Set(); // Множество для отслеживания отвеченных вопросов
 let resourceCheckInterval = null
-
+let preloaderTimeout = null
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -57,6 +57,7 @@ function checkAllResourcesLoaded() {
   if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
     console.log('All resources loaded.');
     clearInterval(resourceCheckInterval); // Останавливаем интервал после загрузки всех ресурсов
+    clearTimeout(preloaderTimeout); // Отменяем таймаут, если все ресурсы загружены вовремя
     $('.preloader').fadeOut(200, () => {
       $('.main-screen').fadeIn(200);
     });
@@ -253,7 +254,17 @@ $(document).ready(function () {
   $('#main-audio').get(0).load();
   $('#car-audio').get(0).load();
 
+  // Устанавливаем интервал для проверки загрузки ресурсов каждую секунду
   resourceCheckInterval = setInterval(checkAllResourcesLoaded, 1000);
+
+  // Устанавливаем таймаут для скрытия прелоадера через 8 секунд
+  preloaderTimeout = setTimeout(() => {
+    console.warn('Resources took too long to load. Hiding preloader.');
+    clearInterval(resourceCheckInterval); // Останавливаем интервал
+    $('.preloader').fadeOut(200, () => {
+      $('.main-screen').fadeIn(200);
+    });
+  }, 8000);
 });
 
 // Обработчик клика на кнопку старта
