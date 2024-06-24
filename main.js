@@ -81,8 +81,12 @@ function updateContent() {
     showFeedback();
   }
 
-  if ($('#quiz').is(':visible') && answeredQuestions.has(currentQuestion)) {
-    updateQuestionContent(currentQuestion);
+  if ($('#quiz').is(':visible')) {
+    if (!answeredQuestions.has(currentQuestion)) {
+      showQuestion(currentQuestion);
+    } else {
+      updateQuestionContent(currentQuestion);
+    }
   }
 }
 
