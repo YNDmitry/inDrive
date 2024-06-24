@@ -89,7 +89,6 @@ function updateContent() {
 
 // Запуск видео и аудио
 function startVideoAndAudio() {
-  $('#main-clip').show();
   $('#main-video').get(0).play();
   $('#main-audio').get(0).play();
   $('#car-audio').get(0).play();
@@ -101,6 +100,7 @@ function showPauseClip(index) {
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     fadeOutAudio(mainAudio, 0.2, 200);
+    mainAudio.play()
   }
 }
 
@@ -110,6 +110,7 @@ function hidePauseClip(index) {
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     fadeInAudio(mainAudio, 1, 200);
+    mainAudio.play()
   }
 }
 
