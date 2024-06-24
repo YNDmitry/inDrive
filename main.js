@@ -109,7 +109,7 @@ function showPauseClip(index) {
     setTimeout(() => {
       mainAudio.play();
       carAudio.play();
-    }, 100);
+    }, 10);
   }
 }
 
@@ -122,7 +122,7 @@ function hidePauseClip(index) {
     setTimeout(() => {
       mainAudio.play();
       carAudio.play();
-    }, 100);
+    }, 10);
   }
 }
 
