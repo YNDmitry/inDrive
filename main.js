@@ -106,6 +106,8 @@ function showPauseClip(index) {
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     mainAudio.volume = 0.2
+    mainAudio.play();
+    carAudio.play();
   }
 }
 
@@ -115,6 +117,8 @@ function hidePauseClip(index) {
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     mainAudio.volume = 1
+    mainAudio.play();
+    carAudio.play();
   }
 }
 
@@ -266,6 +270,8 @@ $(document).ready(function () {
   setTimeout(() => {
     $('.preloader').fadeOut(200);
   }, 10000);
+
+  video.currentTime = 5.0;
 });
 
 // Обработчик клика на кнопку старта
@@ -290,9 +296,6 @@ $('[data-lng]').click(function () {
     updateContent();
   });
 });
-
-// video.playbackRate = 10.0;
-video.currentTime = 5.0;
 
 video.addEventListener('timeupdate', function () {
   if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
