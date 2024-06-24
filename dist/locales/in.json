@@ -1,7 +1,9 @@
 {
   "main": {
     "tryAgainButton": "Mau mencoba lagi?",
-    "nextButton": "Lanjutkan"
+    "nextButton": "Lanjutkan",
+    "shareResultTitle": "Hasil saya",
+    "shareResultText": "Siap untuk memulai perjalanan melalui sejarah inDrive?"
   },
   "intro": {
     "text": "Halo!\n\nApakah kamu siap untuk memulai perjalanan melalui sejarah inDrive? Sebuah kejutan menyenangkan menunggumu di akhir permainan!",

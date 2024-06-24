@@ -11,6 +11,8 @@ const resourcesLoaded = {
 
 let currentQuestion = 0;
 let score = 0;
+let answeredQuestions = new Set(); // Множество для отслеживания отвеченных вопросов
+
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -51,9 +53,11 @@ function initializeI18next() {
 // Проверка загрузки всех ресурсов
 function checkAllResourcesLoaded() {
   if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
-    $('.preloader').fadeOut(200, () => {
-      $('.main-screen').fadeIn(200);
-    });
+    setTimeout(() => {
+      $('.preloader').fadeOut(200, () => {
+        $('.main-screen').fadeIn(200);
+      });
+    }, 100);
   }
 }
 
@@ -74,12 +78,11 @@ function updateContent() {
   }
 
   if ($('.quiz_result').is(':visible')) {
-    $('.quiz_result').hide()
     showFeedback();
   }
 
-  if ($('#quiz').is(':visible') && video.paused) {
-    showQuestion(currentQuestion);
+  if ($('#quiz').is(':visible') && answeredQuestions.has(currentQuestion)) {
+    updateQuestionContent(currentQuestion);
   }
 }
 
@@ -124,11 +127,12 @@ function showQuestion(index) {
     return;
   }
 
+  updateQuestionContent(index);
+
   const questionButtons = question.options.map((option, idx) => `
     <button class="quiz_button">${idx + 1}. ${option}</button>
   `).join('');
 
-  $('#quiz .quiz_message-p').text(question.text);
   $('#quiz .quiz_body').show().html(questionButtons);
   $('#quiz').fadeIn(200);
 
@@ -138,9 +142,11 @@ function showQuestion(index) {
       score++;
     }
 
+    answeredQuestions.add(index);
+
     $('#quiz .quiz_body').fadeOut(200, () => {
       $('.quiz_result-message').data('feedback-key', selectedOption === question.correctAnswer ? 'correct' : 'incorrect');
-      $('.quiz_result-message').data('feedback-index', question);
+      $('.quiz_result-message').data('feedback-index', index);
       showFeedback();
       $('.quiz_result').fadeIn(200);
 
@@ -164,12 +170,19 @@ function showQuestion(index) {
   });
 }
 
+function updateQuestionContent(index) {
+  const questions = i18next.t('questions', { returnObjects: true });
+  const question = questions[index];
+  $('#quiz .quiz_message-p').text(question.text);
+}
+
 // Показ обратной связи
 function showFeedback() {
   const feedbackKey = $('.quiz_result-message').data('feedback-key');
   const feedbackIndex = $('.quiz_result-message').data('feedback-index');
   if (feedbackKey) {
-    const feedbackText = i18next.t(feedbackIndex['feedback'][feedbackKey]);
+    const questions = i18next.t('questions', { returnObjects: true });
+    const feedbackText = i18next.t(questions[feedbackIndex].feedback[feedbackKey]);
     $('.quiz_result-message').text(feedbackText);
   }
 }
