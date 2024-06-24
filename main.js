@@ -303,6 +303,8 @@ video.addEventListener('timeupdate', function () {
   if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
     video.pause();
     showPauseClip(currentQuestion);
+    mainAudio.play()
+    carAudio.play()
     if (!answeredQuestions.has(currentQuestion)) {
       showQuestion(currentQuestion);
     } else {
