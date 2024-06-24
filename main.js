@@ -1,4 +1,6 @@
 import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
 import { fadeInAudio, fadeOutAudio } from './helpers';
 
 // Объект для отслеживания загрузки ресурсов
@@ -32,9 +34,10 @@ const stopTimes = [
 function initializeI18next() {
   i18next
     .use(Backend)
+    .use(LanguageDetector)
     .init({
-      lng: 'en',
       fallbackLng: 'en',
+      supportedLngs: ['ru', 'en', 'fr', 'kz', 'es', 'in', 'ar', 'pt', 'ur'],
       backend: {
         loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
       }
@@ -65,7 +68,7 @@ function updateContent() {
 
   document.body.classList.toggle('rtl', isRtlLanguage);
 
-  $('#intro').text(i18next.t('intro.text'));
+  $('#intro').html(i18next.t('intro.text').replace(/\n/g, '<br>'));
   $('#start').text(i18next.t('intro.button'));
   $('#restart-btn').text(i18next.t('main.tryAgainButton'));
   $('#quiz-next-btn').text(i18next.t('main.nextButton'));
@@ -101,6 +104,7 @@ function showPauseClip(index) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     fadeOutAudio(mainAudio, 0.2, 200);
     mainAudio.play()
+    carAudio.play();
   }
 }
 
@@ -111,6 +115,7 @@ function hidePauseClip(index) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     fadeInAudio(mainAudio, 1, 200);
     mainAudio.play()
+    carAudio.play();
   }
 }
 
@@ -132,7 +137,7 @@ function showQuestion(index) {
   updateQuestionContent(index);
 
   const questionButtons = question.options.map((option, idx) => `
-    <button class="quiz_button">${idx + 1}. ${option}</button>
+    <button class="quiz_button">${idx + 1}. ${option.replace(/\n/g, '<br>')}</button>
   `).join('');
 
   $('#quiz .quiz_body').show().html(questionButtons);
@@ -160,8 +165,6 @@ function showQuestion(index) {
             if (currentQuestion < stopTimes.length) {
               video.currentTime = stopTimes[currentQuestion - 1].end;
               video.play();
-              mainAudio.play();
-              carAudio.play();
             } else {
               showFinalResult();
             }
@@ -175,7 +178,7 @@ function showQuestion(index) {
 function updateQuestionContent(index) {
   const questions = i18next.t('questions', { returnObjects: true });
   const question = questions[index];
-  $('#quiz .quiz_message-p').text(question.text);
+  $('#quiz .quiz_message-p').html(question.text);
 }
 
 // Показ обратной связи
@@ -185,7 +188,7 @@ function showFeedback() {
   if (feedbackKey) {
     const questions = i18next.t('questions', { returnObjects: true });
     const feedbackText = i18next.t(questions[feedbackIndex].feedback[feedbackKey]);
-    $('.quiz_result-message').text(feedbackText);
+    $('.quiz_result-message').html(feedbackText);
   }
 }
 
@@ -241,9 +244,13 @@ function restartQuiz() {
 $(document).ready(function () {
   initializeI18next();
 
-  $('#main-video').on('loadeddata', function () {
+  $('#main-video').on('loadeddata', function (event) {
     resourcesLoaded.video = true;
     checkAllResourcesLoaded()
+  });
+
+  $('#main-video').on('error', function () {
+    alert('Video failed to load. Please try again later.');
   });
 
   $('#main-audio').on('loadeddata', function () {

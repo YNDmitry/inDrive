@@ -110,7 +110,7 @@
     },
     {
       "id": 7,
-      "text": "inDrive apoya muchas iniciativas sociales diferentes. ¿Cuál NO es una de ellas?",
+      "text": "inDrive apoya muchas iniciativas sociales diferentes. ¿Cuál <b>no</b> es una de ellas?",
       "options": [
         "Proyectos educativos para adolescentes y secciones deportivas",
         "Festival de cine y apoyo a startups",
