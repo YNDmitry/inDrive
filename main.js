@@ -12,8 +12,6 @@ const resourcesLoaded = {
 let currentQuestion = 0;
 let score = 0;
 let answeredQuestions = new Set(); // Множество для отслеживания отвеченных вопросов
-let resourceCheckInterval = null
-let preloaderTimeout = null
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -246,9 +244,10 @@ $(document).ready(function () {
     checkAllResourcesLoaded()
   });
 
-  $('#main-video').get(0).load();
-  $('#main-audio').get(0).load();
-  $('#car-audio').get(0).load();
+  // Directly use the load method on HTMLMediaElement without jQuery
+  document.getElementById('main-video').load();
+  document.getElementById('main-audio').load();
+  document.getElementById('car-audio').load();
 });
 
 // Обработчик клика на кнопку старта
