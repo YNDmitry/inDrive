@@ -3,6 +3,10 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { fadeInAudio, fadeOutAudio } from './helpers';
 
+const video = document.getElementById('main-video');
+const mainAudio = document.getElementById('main-audio');
+const carAudio = document.getElementById('car-audio');
+
 // Объект для отслеживания загрузки ресурсов
 const resourcesLoaded = {
   video: false,
@@ -91,9 +95,9 @@ function updateContent() {
 
 // Запуск видео и аудио
 function startVideoAndAudio() {
-  $('#main-video').get(0).play();
-  $('#main-audio').get(0).play();
-  $('#car-audio').get(0).play();
+  video.play();
+  mainAudio.play();
+  carAudio.play();
 }
 
 // Показ паузы видео
@@ -253,13 +257,12 @@ $(document).ready(function () {
     resourcesLoaded.mainAudio = true;
     checkAllResourcesLoaded()
     $('#main-video').get(0).playbackRate = 10
-
   });
 
   // Directly use the load method on HTMLMediaElement without jQuery
-  document.getElementById('main-video').load();
-  document.getElementById('main-audio').load();
-  document.getElementById('car-audio').load();
+  video.load();
+  mainAudio.load();
+  carAudio.load();
 
   // Установка таймера на 10 секунд для скрытия прелоадера
   setTimeout(() => {
@@ -274,9 +277,6 @@ $('#start').click(function () {
 
 // Обработчик клика для переключения звука
 $('#toggleAudio').click(function () {
-  const mainAudio = $('#main-audio').get(0);
-  const carAudio = $('#car-audio').get(0);
-
   mainAudio.muted = !mainAudio.muted;
   carAudio.muted = !carAudio.muted;
   $('#sound-rect').toggle(mainAudio.muted);
@@ -293,9 +293,6 @@ $('[data-lng]').click(function () {
   });
 });
 
-const video = document.getElementById('main-video');
-const mainAudio = document.getElementById('main-audio');
-const carAudio = document.getElementById('car-audio');
 // video.playbackRate = 10.0;
 video.currentTime = 5.0;
 
