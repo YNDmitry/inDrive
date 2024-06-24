@@ -265,6 +265,40 @@ $(document).ready(function () {
       $('.main-screen').fadeIn(200);
     });
   }, 8000);
+
+  // Обработка загрузки прогресса видео
+  const mainVideo = $('#main-video').get(0);
+  const mainAudio = $('#main-audio').get(0);
+  const carAudio = $('#car-audio').get(0);
+
+  const updateBufferingProgress = (mediaElement) => {
+    let buffered = 0;
+    for (let i = 0; i < mediaElement.buffered.length; i++) {
+      buffered += mediaElement.buffered.end(i) - mediaElement.buffered.start(i);
+    }
+    return buffered / mediaElement.duration;
+  };
+
+  const handleBuffering = () => {
+    const videoBuffered = updateBufferingProgress(mainVideo);
+    const audioBuffered = updateBufferingProgress(mainAudio);
+    const carAudioBuffered = updateBufferingProgress(carAudio);
+
+    const totalBuffered = (videoBuffered + audioBuffered + carAudioBuffered) / 3;
+
+    if (totalBuffered === 1) {
+      clearInterval(resourceCheckInterval); // Останавливаем интервал после полной буферизации
+      clearTimeout(preloaderTimeout); // Отменяем таймаут, если все ресурсы загружены вовремя
+      $('.preloader').fadeOut(200, () => {
+        $('.main-screen').fadeIn(200);
+        startVideoAndAudio(); // Стартуем видео и аудио после скрытия прелоадера
+      });
+    }
+  };
+
+  mainVideo.addEventListener('progress', handleBuffering);
+  mainAudio.addEventListener('progress', handleBuffering);
+  carAudio.addEventListener('progress', handleBuffering);
 });
 
 // Обработчик клика на кнопку старта
