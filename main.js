@@ -238,10 +238,12 @@ $(document).ready(function () {
 
   $('#main-video').on('loadeddata', function () {
     resourcesLoaded.video = true;
+    checkAllResourcesLoaded()
   });
 
   $('#main-audio').on('loadeddata', function () {
     resourcesLoaded.mainAudio = true;
+    checkAllResourcesLoaded()
   });
 
   $('#main-video').get(0).load();
@@ -269,11 +271,7 @@ $(document).ready(function () {
     const totalBuffered = Math.round((videoBuffered + audioBuffered + carAudioBuffered) / 3);
 
     if (totalBuffered === 1) {
-      checkAllResourcesLoaded()
-      // $('.preloader').fadeOut(200, () => {
-      //   $('.main-screen').fadeIn(200);
-      //   startVideoAndAudio(); // Стартуем видео и аудио после скрытия прелоадера
-      // });
+      checkAllResourcesLoaded();
     }
   };
 
