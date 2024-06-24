@@ -249,35 +249,6 @@ $(document).ready(function () {
   $('#main-video').get(0).load();
   $('#main-audio').get(0).load();
   $('#car-audio').get(0).load();
-
-  // Обработка загрузки прогресса видео
-  const mainVideo = $('#main-video').get(0);
-  const mainAudio = $('#main-audio').get(0);
-  const carAudio = $('#car-audio').get(0);
-
-  const updateBufferingProgress = (mediaElement) => {
-    let buffered = 0;
-    for (let i = 0; i < mediaElement.buffered.length; i++) {
-      buffered += mediaElement.buffered.end(i) - mediaElement.buffered.start(i);
-    }
-    return buffered / mediaElement.duration;
-  };
-
-  const handleBuffering = () => {
-    const videoBuffered = updateBufferingProgress(mainVideo);
-    const audioBuffered = updateBufferingProgress(mainAudio);
-    const carAudioBuffered = updateBufferingProgress(carAudio);
-
-    const totalBuffered = Math.round((videoBuffered + audioBuffered + carAudioBuffered) / 3);
-
-    if (totalBuffered === 1) {
-      checkAllResourcesLoaded();
-    }
-  };
-
-  mainVideo.addEventListener('progress', handleBuffering);
-  mainAudio.addEventListener('progress', handleBuffering);
-  carAudio.addEventListener('progress', handleBuffering);
 });
 
 // Обработчик клика на кнопку старта
