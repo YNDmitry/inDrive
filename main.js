@@ -55,9 +55,7 @@ function initializeI18next() {
 // Проверка загрузки всех ресурсов
 function checkAllResourcesLoaded() {
   if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
-    $('.preloader').fadeOut(200, () => {
-      $('.main-screen').fadeIn(200);
-    });
+    $('.preloader').fadeOut(200);
   }
 }
 
@@ -249,24 +247,6 @@ $(document).ready(function () {
     checkAllResourcesLoaded()
   });
 
-  $('#main-video').on('error', function () {
-    alert('Main video failed to load.');
-  });
-
-  $('#main-audio').on('error', function () {
-    alert('Main video failed to load.');
-  });
-
-  $('#car-audio').on('error', function () {
-    alert('Main video failed to load.');
-  });
-
-  for (let i = 0; i <= 11; i++) {
-    $(`#clip-${i}`).on('error', function () {
-      alert(`clip-${i} video failed to load.`);
-    });
-  }
-
   $('#main-audio').on('loadeddata', function () {
     resourcesLoaded.mainAudio = true;
     checkAllResourcesLoaded()
@@ -276,6 +256,11 @@ $(document).ready(function () {
   document.getElementById('main-video').load();
   document.getElementById('main-audio').load();
   document.getElementById('car-audio').load();
+
+  // Установка таймера на 10 секунд для скрытия прелоадера
+  setTimeout(() => {
+    $('.preloader').fadeOut(200);
+  }, 10000);
 });
 
 // Обработчик клика на кнопку старта
