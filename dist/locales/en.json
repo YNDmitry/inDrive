@@ -104,7 +104,7 @@
       ],
       "correctAnswer": "Unicorn",
       "feedback": {
-        "correct": "Bingo! You're clearly up to date on business terms.",
+        "correct": "You are right on point! We strive to create equal and fair opportunities for people and communities around the world to thrive.",
         "incorrect": "No fairy tales, we're serious here! In 2021, inDrive received unicorn status — a company whose market valuation exceeds $1 billion."
       }
     },
@@ -152,7 +152,7 @@
     },
     {
       "id": 10,
-      "text": "One time, a superhero was an inDrive user. What do you think who it was?",
+      "text": "One day, we celebrated 200 million trips worldwide. When did it happen?",
       "options": [
         "Spider-Man",
         "Batman",

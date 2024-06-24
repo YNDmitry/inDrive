@@ -104,7 +104,7 @@
       ],
       "correctAnswer": "Unicornio",
       "feedback": {
-        "correct": "¡Bingo! Estás claramente al día con los términos de negocios.",
+        "correct": "¡Estás en lo correcto! Nos esforzamos por crear oportunidades iguales y justas para que las personas y las comunidades de todo el mundo prosperen.",
         "incorrect": "No hay cuentos de hadas, ¡somos serios aquí! En 2021, inDrive recibió el estatus de unicornio: una empresa cuya valoración de mercado supera los 1.000 millones de dólares."
       }
     },
@@ -152,7 +152,7 @@
     },
     {
       "id": 10,
-      "text": "Una vez, un superhéroe fue usuario de inDrive. ¿Quién crees que fue?",
+      "text": "Un día, celebramos 200 millones de viajes en todo el mundo. ¿Cuándo sucedió esto?",
       "options": [
         "Spider-Man",
         "Batman",

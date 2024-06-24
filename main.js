@@ -214,6 +214,12 @@ function showFinalResult() {
   $('#global-result .quiz_message-p').text(`${score}/${totalQuestions}: ${resultText}`);
   $('#result-sticker').attr('src', resultImageUrl);
 
+  // Обновление атрибута data-title
+  const shareResultTitle = i18next.t('main.shareResultTitle');
+  const shareResultText = i18next.t('main.shareResultText');
+  const currentScore = `${score}/${totalQuestions}`;
+  $('[data-title]').attr('data-title', `${shareResultTitle}: ${currentScore}\n\n${shareResultText}`);
+
   $('#restart-btn').off('click').on('click', restartQuiz);
 }
 
@@ -280,7 +286,7 @@ $('[data-lng]').click(function () {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = import.meta.env.MODE === 'development' ? 10.0 : 1.0;
+video.playbackRate = 1.0;
 video.currentTime = 5.0;
 
 video.addEventListener('timeupdate', function () {
