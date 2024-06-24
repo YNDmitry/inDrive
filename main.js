@@ -250,8 +250,22 @@ $(document).ready(function () {
   });
 
   $('#main-video').on('error', function () {
-    alert('Video failed to load. Please try again later.');
+    alert('Main video failed to load.');
   });
+
+  $('#main-audio').on('error', function () {
+    alert('Main video failed to load.');
+  });
+
+  $('#car-audio').on('error', function () {
+    alert('Main video failed to load.');
+  });
+
+  for (let i = 0; i <= 11; i++) {
+    $(`#clip-${i}`).on('error', function () {
+      alert(`clip-${i} video failed to load.`);
+    });
+  }
 
   $('#main-audio').on('loadeddata', function () {
     resourcesLoaded.mainAudio = true;
