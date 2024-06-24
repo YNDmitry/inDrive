@@ -106,10 +106,11 @@ function showPauseClip(index) {
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     mainAudio.volume = 0.2
+    fadeOutAudio(mainAudio, 0.2, 200)
     setTimeout(() => {
       mainAudio.play();
       carAudio.play();
-    }, 10);
+    }, 200);
   }
 }
 
@@ -118,11 +119,11 @@ function hidePauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
-    mainAudio.volume = 1
+    fadeInAudio(mainAudio, 1, 200)
     setTimeout(() => {
       mainAudio.play();
       carAudio.play();
-    }, 10);
+    }, 200);
   }
 }
 
