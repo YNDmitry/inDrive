@@ -12,6 +12,7 @@ const resourcesLoaded = {
 let currentQuestion = 0;
 let score = 0;
 let answeredQuestions = new Set(); // Множество для отслеживания отвеченных вопросов
+let resourceCheckInterval = null
 
 
 const stopTimes = [
@@ -52,12 +53,13 @@ function initializeI18next() {
 
 // Проверка загрузки всех ресурсов
 function checkAllResourcesLoaded() {
+  console.log('Checking resources:', resourcesLoaded);
   if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
-    setTimeout(() => {
-      $('.preloader').fadeOut(200, () => {
-        $('.main-screen').fadeIn(200);
-      });
-    }, 100);
+    console.log('All resources loaded.');
+    clearInterval(resourceCheckInterval); // Останавливаем интервал после загрузки всех ресурсов
+    $('.preloader').fadeOut(200, () => {
+      $('.main-screen').fadeIn(200);
+    });
   }
 }
 
@@ -223,12 +225,13 @@ function showFinalResult() {
 function restartQuiz() {
   currentQuestion = 0;
   score = 0;
+  answeredQuestions.clear();
   $('#global-result').hide();
   $('#clip-11').hide().get(0).pause();
   $('#quiz').fadeOut(200);
 
   video.pause();
-  video.currentTime = 0;
+  video.currentTime = 5;
   startVideoAndAudio();
 }
 
@@ -246,8 +249,11 @@ $(document).ready(function () {
     checkAllResourcesLoaded();
   });
 
+  $('#main-video').get(0).load();
   $('#main-audio').get(0).load();
   $('#car-audio').get(0).load();
+
+  resourceCheckInterval = setInterval(checkAllResourcesLoaded, 1000);
 });
 
 // Обработчик клика на кнопку старта
@@ -286,6 +292,10 @@ video.addEventListener('timeupdate', function () {
   if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
     video.pause();
     showPauseClip(currentQuestion);
-    showQuestion(currentQuestion);
+    if (!answeredQuestions.has(currentQuestion)) {
+      showQuestion(currentQuestion);
+    } else {
+      updateQuestionContent(currentQuestion);
+    }
   }
 });
