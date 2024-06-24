@@ -1,7 +1,9 @@
 {
   "main": {
     "tryAgainButton": "Want to try again?",
-    "nextButton": "Continue"
+    "nextButton": "Continue",
+    "shareResultTitle": "My result",
+    "shareResultText": "Ready to embark on a journey through inDrive's history?"
   },
   "intro": {
     "text": "Hi!\n\nAre you ready to embark on a journey through inDrive's history? A delightful surprise awaits you at the end of the game!",

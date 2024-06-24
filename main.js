@@ -4,7 +4,7 @@ import { fadeInAudio, fadeOutAudio } from './helpers';
 // Объект для отслеживания загрузки ресурсов
 const resourcesLoaded = {
   video: false,
-  mainAudio: true,
+  mainAudio: false,
   carAudio: true,
   language: false
 };
@@ -46,11 +46,6 @@ function initializeI18next() {
       resourcesLoaded.language = true;
       checkAllResourcesLoaded();
     });
-
-  i18next.on('languageChanged', () => {
-    console.log('Language changed to:', i18next.language);
-    updateContent();
-  });
 }
 
 // Проверка загрузки всех ресурсов
@@ -116,7 +111,6 @@ function hidePauseClip(index) {
 
 // Показ вопроса
 function showQuestion(index) {
-  console.log(index);
   const questions = i18next.t('questions', { returnObjects: true });
 
   if (index >= questions.length) {
@@ -230,6 +224,11 @@ $(document).ready(function () {
     checkAllResourcesLoaded();
   });
 
+  $('#main-audio').on('loadeddata', function () {
+    resourcesLoaded.mainAudio = true;
+    checkAllResourcesLoaded();
+  });
+
   $('#main-audio').get(0).load();
   $('#car-audio').get(0).load();
 });
@@ -256,13 +255,14 @@ $('[data-lng]').click(function () {
     if (err) {
       console.error('Error changing language', err);
     }
+    updateContent();
   });
 });
 
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 10.0;
+video.playbackRate = import.meta.env.MODE === 'development' ? 10.0 : 1.0;
 video.currentTime = 5.0;
 
 video.addEventListener('timeupdate', function () {
