@@ -1,13 +1,5 @@
 import Backend from 'i18next-http-backend';
 import { fadeInAudio, fadeOutAudio } from './helpers';
-// Функция для проверки загрузки всех ресурсов
-function checkAllResourcesLoaded() {
-  if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
-    $('.preloader').fadeOut(200, function () {
-      $('.main-screen').fadeIn(200);
-    });
-  }
-}
 
 // Объект для отслеживания загрузки ресурсов
 const resourcesLoaded = {
@@ -17,102 +9,8 @@ const resourcesLoaded = {
   language: false
 };
 
-let initialLoad = true; // Флаг для отслеживания первого запуска
-
-$(document).ready(function () {
-  // Инициализация i18next
-  i18next
-    .use(Backend)
-    .init({
-      lng: 'en',
-      fallbackLng: 'en',
-      backend: {
-        loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
-      }
-    }, function (err, t) {
-      if (err) return console.error(err);
-      updateContent();
-      resourcesLoaded.language = true;
-      checkAllResourcesLoaded();
-    });
-
-  // Отслеживание загрузки видео
-  $('#main-video').on('loadeddata', function () {
-    resourcesLoaded.video = true;
-    checkAllResourcesLoaded();
-  });
-
-  // Отслеживание загрузки основного аудио
-  // $('#main-audio').on('loadeddata', function () {
-  //   resourcesLoaded.mainAudio = true;
-  //   checkAllResourcesLoaded();
-  // });
-
-  // Отслеживание загрузки аудио автомобиля
-  // $('#car-audio').on('loadeddata', function () {
-  //   resourcesLoaded.carAudio = true;
-  //   checkAllResourcesLoaded();
-  // });
-
-  // Убедитесь, что аудио и видео загружаются
-  $('#main-video').get(0).load();
-  $('#main-audio').get(0).load();
-  $('#car-audio').get(0).load();
-});
-
-$('#start').click(function () {
-  $('.main-screen').fadeOut(200, function () {
-    startVideoAndAudio();
-  });
-});
-
-function startVideoAndAudio() {
-  $('#main-clip').show();
-  $('#main-video').get(0).play();
-  $('#main-audio').get(0).play();
-  $('#car-audio').get(0).play();
-}
-
-function updateContent() {
-  const currentLanguage = i18next.language;
-  const isRtlLanguage = ['ar', 'ur'].includes(currentLanguage);
-
-  if (isRtlLanguage) {
-    document.body.classList.add('rtl');
-  } else {
-    document.body.classList.remove('rtl');
-  }
-
-  $('#intro').text(i18next.t('intro.text'));
-  $('#start').text(i18next.t('intro.button'));
-  $('#restart-btn').text(i18next.t('main.tryAgainButton'))
-  $('#quiz-next-btn').text(i18next.t('main.nextButton'))
-
-  // Update feedback and result texts if visible
-  if ($('#global-result').is(':visible')) {
-    showFinalResult(); // Обновить результат при переключении языка
-  }
-
-  if ($('.quiz_result').is(':visible')) {
-    showFeedback(); // Обновить feedback при переключении языка
-  }
-
-  if ($('#quiz').is(':visible')) {
-    showQuestion(currentQuestion);
-  }
-
-  // // Показываем вопрос только при переключении языка, если это не первый запуск
-  // if (!initialLoad && currentQuestion > 0 && currentQuestion < stopTimes.length) {
-  // }
-
-  initialLoad = false; // Устанавливаем флаг в false после первого запуска
-}
-
-const video = document.getElementById('main-video');
-const mainAudio = document.getElementById('main-audio');
-const carAudio = document.getElementById('car-audio');
-video.playbackRate = 10.0; // Установите желаемую скорость воспроизведения для тестирования
-video.currentTime = 5.0
+let currentQuestion = 0;
+let score = 0;
 
 const stopTimes = [
   { start: 12, end: 15 },
@@ -129,35 +27,96 @@ const stopTimes = [
   { start: 238, end: 245 }
 ];
 
-let currentQuestion = 0;
-let score = 0;
+// Инициализация i18next
+function initializeI18next() {
+  i18next
+    .use(Backend)
+    .init({
+      lng: 'en',
+      fallbackLng: 'en',
+      backend: {
+        loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive@master/public/locales/{{lng}}.json'
+      }
+    }, (err, t) => {
+      if (err) {
+        console.error('i18next init error:', err);
+        return;
+      }
+      updateContent();
+      resourcesLoaded.language = true;
+      checkAllResourcesLoaded();
+    });
 
-video.addEventListener('timeupdate', function () {
-  if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
-    video.pause();
-    showPauseClip(currentQuestion);
+  i18next.on('languageChanged', () => {
+    console.log('Language changed to:', i18next.language);
+    updateContent();
+  });
+}
+
+// Проверка загрузки всех ресурсов
+function checkAllResourcesLoaded() {
+  if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
+    $('.preloader').fadeOut(200, () => {
+      $('.main-screen').fadeIn(200);
+    });
+  }
+}
+
+// Обновление контента на основе текущего языка
+function updateContent() {
+  const currentLanguage = i18next.language;
+  const isRtlLanguage = ['ar', 'ur'].includes(currentLanguage);
+
+  document.body.classList.toggle('rtl', isRtlLanguage);
+
+  $('#intro').text(i18next.t('intro.text'));
+  $('#start').text(i18next.t('intro.button'));
+  $('#restart-btn').text(i18next.t('main.tryAgainButton'));
+  $('#quiz-next-btn').text(i18next.t('main.nextButton'));
+
+  if ($('#global-result').is(':visible')) {
+    showFinalResult();
+  }
+
+  if ($('.quiz_result').is(':visible')) {
+    $('.quiz_result').hide()
+    showFeedback();
+  }
+
+  if ($('#quiz').is(':visible') && video.paused) {
     showQuestion(currentQuestion);
   }
-});
+}
 
+// Запуск видео и аудио
+function startVideoAndAudio() {
+  $('#main-clip').show();
+  $('#main-video').get(0).play();
+  $('#main-audio').get(0).play();
+  $('#car-audio').get(0).play();
+}
+
+// Показ паузы видео
 function showPauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
-    fadeOutAudio(mainAudio, 0.2, 200)
+    fadeOutAudio(mainAudio, 0.2, 200);
   }
 }
 
+// Скрытие паузы видео
 function hidePauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
-    fadeInAudio(mainAudio, 1, 200)
+    fadeInAudio(mainAudio, 1, 200);
   }
 }
 
+// Показ вопроса
 function showQuestion(index) {
-  console.log(index)
+  console.log(index);
   const questions = i18next.t('questions', { returnObjects: true });
 
   if (index >= questions.length) {
@@ -166,7 +125,6 @@ function showQuestion(index) {
   }
 
   const question = questions[index];
-
   if (!question || !question.options) {
     console.error(`Question or options not found for index: ${index}`);
     return;
@@ -181,22 +139,20 @@ function showQuestion(index) {
   $('#quiz').fadeIn(200);
 
   $('.quiz_button').off('click').on('click', function () {
-    const selectedOption = $(this).text();
-    const cleanedOption = selectedOption.replace(/^\d+\.\s*/, '');
-
-    if (cleanedOption === question.correctAnswer) {
+    const selectedOption = $(this).text().replace(/^\d+\.\s*/, '');
+    if (selectedOption === question.correctAnswer) {
       score++;
     }
 
-    $('#quiz .quiz_body').fadeOut(200, function () {
-      $('.quiz_result-message').data('feedback-key', cleanedOption === question.correctAnswer ? 'correct' : 'incorrect');
+    $('#quiz .quiz_body').fadeOut(200, () => {
+      $('.quiz_result-message').data('feedback-key', selectedOption === question.correctAnswer ? 'correct' : 'incorrect');
       $('.quiz_result-message').data('feedback-index', question);
       showFeedback();
       $('.quiz_result').fadeIn(200);
 
-      $('#quiz-next-btn').off('click').on('click', function () {
-        $('.quiz_result').fadeOut(200, function () {
-          $('#quiz').fadeOut(200, function () {
+      $('#quiz-next-btn').off('click').on('click', () => {
+        $('.quiz_result').fadeOut(200, () => {
+          $('#quiz').fadeOut(200, () => {
             hidePauseClip(index);
             currentQuestion++;
             if (currentQuestion < stopTimes.length) {
@@ -214,50 +170,50 @@ function showQuestion(index) {
   });
 }
 
+// Показ обратной связи
 function showFeedback() {
   const feedbackKey = $('.quiz_result-message').data('feedback-key');
   const feedbackIndex = $('.quiz_result-message').data('feedback-index');
-  if (feedbackKey) { // Убедимся, что feedbackKey существует
+  if (feedbackKey) {
     const feedbackText = i18next.t(feedbackIndex['feedback'][feedbackKey]);
     $('.quiz_result-message').text(feedbackText);
   }
 }
 
+// Показ финального результата
 function showFinalResult() {
   $('#quiz').hide();
   const totalQuestions = i18next.t('questions', { returnObjects: true }).length;
-  let resultText = "";
-  let resultImageUrl = ""; // Новый URL изображения
+  let resultText = '';
+  let resultImageUrl = '';
 
   if (score >= 9) {
     resultText = i18next.t('results.9-11');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7db61f47f75879d25c_9-11.webp";
+    resultImageUrl = 'https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7db61f47f75879d25c_9-11.webp';
   } else if (score >= 6) {
     resultText = i18next.t('results.6-8');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7e84abff9cd9e4b9e6_6-8.webp";
+    resultImageUrl = 'https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7e84abff9cd9e4b9e6_6-8.webp';
   } else if (score >= 2) {
     resultText = i18next.t('results.2-5');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7de087682c0094fe9e_2-5.webp";
+    resultImageUrl = 'https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7de087682c0094fe9e_2-5.webp';
   } else {
     resultText = i18next.t('results.0-1');
-    resultImageUrl = "https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7d859c2b8102452b2f_0-1.webp";
+    resultImageUrl = 'https://uploads-ssl.webflow.com/6672afeafc31823192f2552f/66788f7d859c2b8102452b2f_0-1.webp';
   }
 
-  $('#global-result').show()
+  $('#global-result').show();
   $('#global-result .quiz_message-p').text(`${score}/${totalQuestions}: ${resultText}`);
-  $('#result-sticker').attr('src', resultImageUrl); // Установка URL изображения
+  $('#result-sticker').attr('src', resultImageUrl);
 
-  // Show restart button
-  $('#restart-btn').off('click').on('click', function () {
-    restartQuiz();
-  });
+  $('#restart-btn').off('click').on('click', restartQuiz);
 }
 
+// Перезапуск викторины
 function restartQuiz() {
   currentQuestion = 0;
   score = 0;
   $('#global-result').hide();
-  $('#clip-11').hide().get(0).pause()
+  $('#clip-11').hide().get(0).pause();
   $('#quiz').fadeOut(200);
 
   video.pause();
@@ -265,28 +221,54 @@ function restartQuiz() {
   startVideoAndAudio();
 }
 
-// Toggle audio
+// Инициализация событий загрузки
+$(document).ready(function () {
+  initializeI18next();
+
+  $('#main-video').on('loadeddata', function () {
+    resourcesLoaded.video = true;
+    checkAllResourcesLoaded();
+  });
+
+  $('#main-audio').get(0).load();
+  $('#car-audio').get(0).load();
+});
+
+// Обработчик клика на кнопку старта
+$('#start').click(function () {
+  $('.main-screen').fadeOut(200, startVideoAndAudio);
+});
+
+// Обработчик клика для переключения звука
 $('#toggleAudio').click(function () {
-  if (mainAudio.muted) {
-    mainAudio.muted = false;
-    carAudio.muted = false;
-    $('#sound-rect').hide()
-  } else {
-    mainAudio.muted = true;
-    carAudio.muted = true;
-    $('#sound-rect').show()
-  }
+  const mainAudio = $('#main-audio').get(0);
+  const carAudio = $('#car-audio').get(0);
+
+  mainAudio.muted = !mainAudio.muted;
+  carAudio.muted = !carAudio.muted;
+  $('#sound-rect').toggle(mainAudio.muted);
 });
 
-i18next.on('languageChanged', () => {
-  console.log('Language changed to:', i18next.language);
-  updateContent();
-});
-
-// Change language
+// Обработчик клика для смены языка
 $('[data-lng]').click(function () {
   const lng = $(this).attr('data-lng');
   i18next.changeLanguage(lng, function (err, t) {
-    if (err) return console.error('Error changing language', err);
+    if (err) {
+      console.error('Error changing language', err);
+    }
   });
+});
+
+const video = document.getElementById('main-video');
+const mainAudio = document.getElementById('main-audio');
+const carAudio = document.getElementById('car-audio');
+video.playbackRate = 10.0;
+video.currentTime = 5.0;
+
+video.addEventListener('timeupdate', function () {
+  if (currentQuestion < stopTimes.length && video.currentTime >= stopTimes[currentQuestion].start) {
+    video.pause();
+    showPauseClip(currentQuestion);
+    showQuestion(currentQuestion);
+  }
 });
