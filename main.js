@@ -259,7 +259,6 @@ $(document).ready(function () {
   $('#main-audio').on('loadeddata', function () {
     resourcesLoaded.mainAudio = true;
     checkAllResourcesLoaded()
-    $('#main-video').get(0).playbackRate = 10
   });
 
   // Directly use the load method on HTMLMediaElement without jQuery
