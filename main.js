@@ -53,11 +53,7 @@ function initializeI18next() {
 
 // Проверка загрузки всех ресурсов
 function checkAllResourcesLoaded() {
-  console.log('Checking resources:', resourcesLoaded);
   if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
-    console.log('All resources loaded.');
-    clearInterval(resourceCheckInterval); // Останавливаем интервал после загрузки всех ресурсов
-    clearTimeout(preloaderTimeout); // Отменяем таймаут, если все ресурсы загружены вовремя
     $('.preloader').fadeOut(200, () => {
       $('.main-screen').fadeIn(200);
     });
@@ -242,29 +238,15 @@ $(document).ready(function () {
 
   $('#main-video').on('loadeddata', function () {
     resourcesLoaded.video = true;
-    checkAllResourcesLoaded();
   });
 
   $('#main-audio').on('loadeddata', function () {
     resourcesLoaded.mainAudio = true;
-    checkAllResourcesLoaded();
   });
 
   $('#main-video').get(0).load();
   $('#main-audio').get(0).load();
   $('#car-audio').get(0).load();
-
-  // Устанавливаем интервал для проверки загрузки ресурсов каждую секунду
-  resourceCheckInterval = setInterval(checkAllResourcesLoaded, 1000);
-
-  // Устанавливаем таймаут для скрытия прелоадера через 8 секунд
-  preloaderTimeout = setTimeout(() => {
-    console.warn('Resources took too long to load. Hiding preloader.');
-    clearInterval(resourceCheckInterval); // Останавливаем интервал
-    $('.preloader').fadeOut(200, () => {
-      $('.main-screen').fadeIn(200);
-    });
-  }, 8000);
 
   // Обработка загрузки прогресса видео
   const mainVideo = $('#main-video').get(0);
@@ -284,15 +266,14 @@ $(document).ready(function () {
     const audioBuffered = updateBufferingProgress(mainAudio);
     const carAudioBuffered = updateBufferingProgress(carAudio);
 
-    const totalBuffered = (videoBuffered + audioBuffered + carAudioBuffered) / 3;
+    const totalBuffered = Math.round((videoBuffered + audioBuffered + carAudioBuffered) / 3);
 
     if (totalBuffered === 1) {
-      clearInterval(resourceCheckInterval); // Останавливаем интервал после полной буферизации
-      clearTimeout(preloaderTimeout); // Отменяем таймаут, если все ресурсы загружены вовремя
-      $('.preloader').fadeOut(200, () => {
-        $('.main-screen').fadeIn(200);
-        startVideoAndAudio(); // Стартуем видео и аудио после скрытия прелоадера
-      });
+      checkAllResourcesLoaded()
+      // $('.preloader').fadeOut(200, () => {
+      //   $('.main-screen').fadeIn(200);
+      //   startVideoAndAudio(); // Стартуем видео и аудио после скрытия прелоадера
+      // });
     }
   };
 
