@@ -250,6 +250,8 @@ $(document).ready(function () {
   $('#main-audio').on('loadeddata', function () {
     resourcesLoaded.mainAudio = true;
     checkAllResourcesLoaded()
+    $('#main-video').get(0).playbackRate = 10
+
   });
 
   // Directly use the load method on HTMLMediaElement without jQuery
@@ -292,7 +294,7 @@ $('[data-lng]').click(function () {
 const video = document.getElementById('main-video');
 const mainAudio = document.getElementById('main-audio');
 const carAudio = document.getElementById('car-audio');
-video.playbackRate = 1.0;
+// video.playbackRate = 10.0;
 video.currentTime = 5.0;
 
 video.addEventListener('timeupdate', function () {
