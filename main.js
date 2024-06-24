@@ -106,7 +106,8 @@ function showPauseClip(index) {
   if (clip) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     mainAudio.volume = 0.2
-    carAudio.play();
+    if (carAudio.paused) carAudio.play();
+    if (mainAudio.paused) mainAudio.play();
   }
 }
 
@@ -116,7 +117,8 @@ function hidePauseClip(index) {
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     mainAudio.volume = 1
-    carAudio.play();
+    if (carAudio.paused) carAudio.play();
+    if (mainAudio.paused) mainAudio.play();
   }
 }
 
@@ -240,6 +242,9 @@ function restartQuiz() {
   video.pause();
   video.currentTime = 5;
   startVideoAndAudio();
+
+  mainAudio.play();
+  carAudio.play();
 }
 
 // Инициализация событий загрузки
