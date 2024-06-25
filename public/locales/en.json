@@ -22,12 +22,12 @@
       "correctAnswer": "Yakutsk",
       "feedback": {
         "correct": "That's right! The inDrive story began in Yakutsk, one of the coldest cities in the world.",
-        "incorrect": "You're getting warm! In fact, it's Yakutsk. inDrive was born as a response to injustice. One day on New Year's Eve, in the coldest time of the year, local transportation companies doubled their rates, putting citizens in a difficult position. This is how inDrive appeared. The app where everyone can get a ride at a fair price."
+        "incorrect": "You're getting warm! In fact, it's Yakutsk.\n\ninDrive was born as a response to injustice. One day on New Year's Eve, in the coldest time of the year, local transportation companies doubled their rates, putting citizens in a difficult position. This is how indrive appeared. The app where everyone can get a ride at a fair price."
       }
     },
     {
       "id": 1,
-      "text": "In 2014, inDrive reached a new level and appeared in one more country. Can you guess which one?",
+      "text": " In 2014, inDrive reached a new level and appeared in one more country. Can you guess which one?",
       "options": [
         "Mexico",
         "Kazakhstan",
@@ -49,8 +49,8 @@
       ],
       "correctAnswer": "Uberlândia",
       "feedback": {
-        "correct": "That’s right, it’s Uberlândia! If you ever find yourself in this lovely Brazilian city, know that you can always negotiate the price of your ride there.",
-        "incorrect": "It’s Uberlândia! Yes, it’s a real city in Brazil. Gettsburg and Bolt-York are our inventions."
+        "correct": "That’s right, it’s Uberlândia!\n\nIf you ever find yourself in this lovely Brazilian city, know that you can always negotiate the price of your ride there.",
+        "incorrect": "It’s Uberlândia!\n\nYes, it’s a real city in Brazil. Gettsburg and Bolt-York are our inventions."
       }
     },
     {
@@ -64,12 +64,12 @@
       "correctAnswer": "749",
       "feedback": {
         "correct": "You got it, 749! But we always strive for more!",
-        "incorrect": "Oops, wrong answer! inDrive is present in 749 cities as of now. But of course, we have huge plans."
+        "incorrect": "Oops, wrong answer!\n\ninDrive is present in 749 cities as of now. But of course, we have huge plans."
       }
     },
     {
       "id": 4,
-      "text": "What’s the difference between inDrive and similar apps?",
+      "text": "What’s the difference between the inDrive and similar apps?",
       "options": [
         "You can negotiate the price in inDrive",
         "You can choose a driver by their zodiac sign in inDrive",
@@ -77,7 +77,7 @@
       ],
       "correctAnswer": "You can negotiate the price in inDrive",
       "feedback": {
-        "correct": "That's right! A fair price for a ride is the main difference between inDrive and other apps.",
+        "correct": "That's right!\n\nA fair price for a ride is the main difference between inDrive and other apps.",
         "incorrect": "First and foremost, we are for social justice. That's why you can always negotiate a price in inDrive."
       }
     },
@@ -91,7 +91,7 @@
       ],
       "correctAnswer": "Challenging injustice",
       "feedback": {
-        "correct": "You are right on point! We strive to create equal and fair opportunities for people and communities around the world to thrive. Looks like you share our values.",
+        "correct": "You are right on point!\n\nWe strive to create equal and fair opportunities for people and communities around the world to thrive.",
         "incorrect": "inDrive's main mission is to challenge injustice. People and communities around the world should have equal and fair opportunities to thrive."
       }
     },
@@ -105,13 +105,13 @@
       ],
       "correctAnswer": "Unicorn",
       "feedback": {
-        "correct": "You are right on point! We strive to create equal and fair opportunities for people and communities around the world to thrive.",
-        "incorrect": "No fairy tales, we're serious here! In 2021, inDrive received unicorn status — a company whose market valuation exceeds $1 billion."
+        "correct": "Bingo! You're clearly up to date on business terms.",
+        "incorrect": "No fairy tales, we're serious here!\n\nIn 2021, inDrive received unicorn status — a company whose market valuation exceeds $1 billion."
       }
     },
     {
       "id": 7,
-      "text": "inDrive supports many different social initiatives. Which is <b>not</b> what inDrive does?",
+      "text": "inDrive supports many different social initiatives. Which is NOT what inDrive does?",
       "options": [
         "Educational projects for teenagers and sports sections",
         "Film festival and supporting startups",
@@ -119,8 +119,8 @@
       ],
       "correctAnswer": "Organizing local parties for users around the world",
       "feedback": {
-        "correct": "Great job! Yes, we support various social initiatives through our inVision hub: educational projects for teenagers, different sports sections, startups, and even a film festival.",
-        "incorrect": "Not this time! To amplify our impact, we’ve created an inVision hub where we tackle the unfair distribution of resources in education, creative industries, startups, and sports, supporting low-income groups. But we haven’t thrown any parties yet."
+        "correct": "Great job!\n\nYes, we support various social initiatives through our inVision hub: educational projects for teenagers, different sports sections, startups, and even a film festival.",
+        "incorrect": "Not this time!\n\nTo amplify our impact, we’ve created an inVision hub where we tackle the unfair distribution of resources in education, creative industries, startups, and sports, supporting low-income groups. But we haven’t thrown any parties yet."
       }
     },
     {
@@ -133,13 +133,13 @@
       ],
       "correctAnswer": "2 wedding dresses on the same day, dentures, a real duck",
       "feedback": {
-        "correct": "You guessed it! inDrive’s passengers sometimes leave behind the most unexpected things in cars, and once, someone even forgot a live duck!",
-        "incorrect": "You're even close! inDrive’s passengers have forgotten dentures, a real duck, and even 2 wedding dresses in one day. Can you imagine the drivers’ faces when they found all that?"
+        "correct": "You guessed it!\n\ninDrive’s passengers sometimes leave behind the most unexpected things in cars, and once, someone even forgot a live duck!",
+        "incorrect": "You're even close!\n\ninDrive’s passengers have forgotten dentures, a real duck, and even 2 wedding dresses in one day. Can you imagine the drivers’ faces when they found all that?"
       }
     },
     {
       "id": 9,
-      "text": "One day inDrive celebrated 200 million rides worldwide. When did this happen?",
+      "text": "One day, we celebrated 200 million trips worldwide. When did it happen?",
       "options": [
         "September 2022",
         "November 2023",
@@ -153,7 +153,7 @@
     },
     {
       "id": 10,
-      "text": "One day, we celebrated 200 million trips worldwide. When did it happen?",
+      "text": "One time, a superhero was an inDrive user. What do you think who it was?",
       "options": [
         "Spider-Man",
         "Batman",
@@ -161,15 +161,15 @@
       ],
       "correctAnswer": "Spider-Man",
       "feedback": {
-        "correct": "Ha-ha! Yes, it was Spider-Man! Do you know the story? Once a granny met a guy dressed as Spider-Man in inDrive. That ride must have been unforgettably funny!",
-        "incorrect": "You were so close! It was… Spider-Man! Once, on an intercity trip, a granny got an unexpected fellow traveler — a passenger in Spider-Man’s costume. There’s even a video of it somewhere on the Internet!"
+        "correct": "Ha-ha! Yes, it was Spider-Man! Do you know the story?\n\nOnce a granny met a guy dressed as Spider-Man in inDrive. That ride must have been unforgettably funny!",
+        "incorrect": "You were so close! It was…\n\nSpider-Man! Once, on an intercity trip, a granny got an unexpected fellow traveler — a passenger in Spider-Man’s costume. There’s even a video of it somewhere on the Internet!"
       }
     }
   ],
   "results": {
-    "9-11": "Experienced adventurer. You're great at navigating and can solve even the most difficult puzzle.",
-    "6-8": "Brave adventurer. Always ready for new discoveries and not afraid to experiment.",
-    "2-5": "Young traveler with all roads open to you. Fly with the wind, all the most wonderful things are ahead!",
-    "0-1": "Hmm... Thought you could fool us? We're sure you know a lot about inDrive. Want to try again?"
+    "9-11": "Experienced adventurer.\n\nYou're great at navigating and can solve even the most difficult puzzle.",
+    "6-8": "Brave adventurer.\n\nAlways ready for new discoveries and not afraid to experiment.",
+    "2-5": "Young traveler with all roads open to you.\n\nFly with the wind, all the most wonderful things are ahead!",
+    "0-1": "Hmm... Thought you could fool us?\n\nWe're sure you know a lot about inDrive. Want to try again?"
   }
 }

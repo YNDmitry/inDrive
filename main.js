@@ -305,13 +305,3 @@ video.addEventListener('timeupdate', function () {
     }
   }
 });
-
-// video.addEventListener('pause', function () {
-//   if (mainAudio.paused) mainAudio.play();
-//   if (carAudio.paused) carAudio.play();
-// });
-
-// video.addEventListener('play', function () {
-//   if (mainAudio.paused) mainAudio.play();
-//   if (carAudio.paused) carAudio.play();
-// });
