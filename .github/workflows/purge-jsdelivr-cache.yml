@@ -1,0 +1,25 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  purge-jsdelivr-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: |
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/en.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ru.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/kz.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/es.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/in.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ar.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/pt.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/fr.json
+            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ur.json

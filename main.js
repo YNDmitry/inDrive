@@ -58,7 +58,7 @@ function initializeI18next() {
 
 // Проверка загрузки всех ресурсов
 function checkAllResourcesLoaded() {
-  if (resourcesLoaded.video && resourcesLoaded.mainAudio && resourcesLoaded.carAudio && resourcesLoaded.language) {
+  if (resourcesLoaded.language) {
     $('.preloader').fadeOut(200);
   }
 }
@@ -249,14 +249,12 @@ $(document).ready(function () {
 
   $('#main-video').on('loadeddata', function (event) {
     resourcesLoaded.video = true;
-    checkAllResourcesLoaded()
     $('#main-video').stop()
     video.currentTime = 5
   });
 
   $('#main-audio').on('canplaythrough', function () {
     resourcesLoaded.mainAudio = true;
-    checkAllResourcesLoaded()
   });
 
   // Directly use the load method on HTMLMediaElement without jQuery
