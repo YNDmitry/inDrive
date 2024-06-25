@@ -10,16 +10,55 @@ jobs:
   purge-jsdelivr-cache:
     runs-on: ubuntu-latest
     steps:
-      - name: Purge jsDelivr cache
+      - name: Purge jsDelivr cache for en.json
         uses: gacts/purge-jsdelivr-cache@v1
         with:
-          url: |
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/en.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ru.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/kz.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/es.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/in.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ar.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/pt.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/fr.json
-            https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ur.json
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/en.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for ru.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ru.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for kz.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/kz.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for es.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/es.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for in.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/in.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for ar.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ar.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for pt.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/pt.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for fr.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/fr.json
+      - name: Wait for 30 seconds
+        run: sleep 30
+      - name: Purge jsDelivr cache for ur.json
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/ur.json
