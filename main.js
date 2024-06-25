@@ -250,6 +250,8 @@ $(document).ready(function () {
   $('#main-video').on('loadeddata', function (event) {
     resourcesLoaded.video = true;
     checkAllResourcesLoaded()
+    $('#main-video').stop()
+    video.currentTime = 5
   });
 
   $('#main-audio').on('canplaythrough', function () {
@@ -261,8 +263,6 @@ $(document).ready(function () {
   video.load();
   mainAudio.load();
   carAudio.load();
-
-  $('#main-video').prop('autoplay', false)
 
   // Установка таймера на 10 секунд для скрытия прелоадера
   setTimeout(() => {
