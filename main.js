@@ -116,6 +116,8 @@ function hidePauseClip(index) {
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     fadeInAudio(mainAudio, 1, 200)
+    mainAudio.play();
+    carAudio.play();
   }
 }
 
