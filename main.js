@@ -177,7 +177,7 @@ function showQuestion(index) {
 function updateQuestionContent(index) {
   const questions = i18next.t('questions', { returnObjects: true });
   const question = questions[index];
-  $('#quiz .quiz_message-p').html(question.text);
+  $('#quiz .quiz_message-p').html(question.text.replace(/\n/g, '<br>'));
 }
 
 // Показ обратной связи

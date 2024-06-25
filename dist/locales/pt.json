@@ -161,8 +161,8 @@
       ],
       "correctAnswer": "Homem-Aranha",
       "feedback": {
-        "correct": "Ha-ha! Sim, foi o Homem-Aranha! Você conhece a história? Uma vez, uma avó conheceu um cara vestido de Homem-Aranha no inDrive. Essa viagem deve ter sido inesquecivelmente engraçada!",
-        "incorrect": "Você estava muito perto! Foi… o Homem-Aranha! Uma vez, em uma viagem entre cidades, uma avó teve um companheiro de viagem inesperado — um passageiro fantasiado de Homem-Aranha. Há até um vídeo disso em algum lugar na internet."
+        "correct": "Ha-ha! Sim, foi o Homem-Aranha! Você conhece a história?\n\nUma vez, uma avó conheceu um cara vestido de Homem-Aranha no inDrive. Essa viagem deve ter sido inesquecivelmente engraçada!",
+        "incorrect": "Você estava muito perto! Foi…\n\no Homem-Aranha! Uma vez, em uma viagem entre cidades, uma avó teve um companheiro de viagem inesperado — um passageiro fantasiado de Homem-Aranha. Há até um vídeo disso em algum lugar na internet."
       }
     }
   ],
