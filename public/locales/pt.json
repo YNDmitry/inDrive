@@ -99,14 +99,14 @@
       "id": 6,
       "text": "Em abril de 2021, o inDrive recebeu o status de startup de conto de fadas. Qual é esse status chamado?",
       "options": [
-        "Unicórnio",
         "Grifo",
+        "Unicórnio",
         "Dragão"
       ],
       "correctAnswer": "Unicórnio",
       "feedback": {
-        "correct": "Você está certo! Nós nos esforçamos para criar oportunidades iguais e justas para pessoas e comunidades ao redor do mundo prosperarem.",
-        "incorrect": "Sem contos de fadas, estamos falando sério aqui! Em 2021, o inDrive recebeu o status de unicórnio — uma empresa cuja avaliação de mercado excede 1 bilhão de dólares."
+        "correct": "Bingo! Você claramente está por dentro dos termos de negócios.",
+        "incorrect": "Sem contos de fadas, estamos falando sério aqui!\n\nEm 2021, o inDrive recebeu o status de unicórnio — uma empresa cuja avaliação de mercado excede 1 bilhão de dólares."
       }
     },
     {

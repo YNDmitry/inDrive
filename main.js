@@ -187,7 +187,7 @@ function showFeedback() {
   if (feedbackKey) {
     const questions = i18next.t('questions', { returnObjects: true });
     const feedbackText = i18next.t(questions[feedbackIndex].feedback[feedbackKey]);
-    $('.quiz_result-message').html(feedbackText);
+    $('.quiz_result-message').html(feedbackText.replace(/\n/g, '<br>'));
   }
 }
 
