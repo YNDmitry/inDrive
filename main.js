@@ -262,6 +262,8 @@ $(document).ready(function () {
   mainAudio.load();
   carAudio.load();
 
+  $('#main-video').prop('autoplay', false)
+
   // Установка таймера на 10 секунд для скрытия прелоадера
   setTimeout(() => {
     $('.preloader').fadeOut(200);
