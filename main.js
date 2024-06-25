@@ -269,6 +269,7 @@ $(document).ready(function () {
   }, 10000);
 
   video.currentTime = 5.0;
+  $('[data-title]').attr('data-url', location.origin)
 });
 
 // Обработчик клика на кнопку старта
@@ -306,16 +307,16 @@ video.addEventListener('timeupdate', function () {
   }
 });
 
-$('video').each((idx, el) => {
-  el.addEventListener('pause', function () {
-    if (mainAudio.paused) mainAudio.play();
-    if (carAudio.paused) carAudio.play();
-  });
-})
+// $('video').each((idx, el) => {
+//   el.addEventListener('pause', function () {
+//     if (mainAudio.paused) mainAudio.play();
+//     if (carAudio.paused) carAudio.play();
+//   });
+// })
 
-$('video').each((idx, el) => {
-  el.addEventListener('play', function () {
-    if (mainAudio.paused) mainAudio.play();
-    if (carAudio.paused) carAudio.play();
-  });
-})
+// $('video').each((idx, el) => {
+//   el.addEventListener('play', function () {
+//     if (mainAudio.paused) mainAudio.play();
+//     if (carAudio.paused) carAudio.play();
+//   });
+// })
