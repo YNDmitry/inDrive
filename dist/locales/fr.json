@@ -105,8 +105,8 @@
       ],
       "correctAnswer": "Licorne",
       "feedback": {
-        "correct": "Vous avez tout à fait raison! Nous nous efforçons de créer des opportunités égales et justes pour les personnes et les communautés du monde entier.",
-        "incorrect": "Pas de contes de fées, nous sommes sérieux ici! En 2021, inDrive a reçu le statut de licorne — une entreprise dont la valorisation dépasse 1 milliard de dollars."
+        "correct": "Bingo! Vous êtes clairement à jour sur les termes commerciaux.",
+        "incorrect": "Pas de contes de fées, nous sommes sérieux ici!\n\nEn 2021, inDrive a reçu le statut de licorne — une entreprise dont la valorisation dépasse 1 milliard de dollars."
       }
     },
     {
@@ -153,7 +153,7 @@
     },
     {
       "id": 10,
-      "text": "Un jour, nous avons célébré 200 millions de trajets dans le monde entier. Quand cela s'est-il passé?",
+      "text": "Une fois, un super-héros était un utilisateur d'inDrive. Qui pensez-vous que c'était?",
       "options": [
         "Spider-Man",
         "Batman",
