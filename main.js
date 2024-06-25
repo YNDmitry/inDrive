@@ -249,7 +249,7 @@ $(document).ready(function () {
 
   $('#main-video').on('loadeddata', function (event) {
     resourcesLoaded.video = true;
-    $('#main-video').stop()
+    $('#main-video').attr('autoplay', false).get(0).stop()
     video.currentTime = 5
   });
 
