@@ -104,8 +104,7 @@ function startVideoAndAudio() {
 function showPauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
-    $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
-    mainAudio.volume = 0.2
+    $(clip).fadeIn(0).prop('autoplay', true).get(0).play();
     fadeOutAudio(mainAudio, 0.2, 200)
   }
 }
@@ -114,10 +113,8 @@ function showPauseClip(index) {
 function hidePauseClip(index) {
   const clip = document.getElementById(`clip-${index}`);
   if (clip) {
-    $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
+    $(clip).fadeOut(0).prop('autoplay', false).get(0).pause();
     fadeInAudio(mainAudio, 1, 200)
-    mainAudio.play();
-    carAudio.play();
   }
 }
 
@@ -242,8 +239,8 @@ function restartQuiz() {
   video.currentTime = 5;
   startVideoAndAudio();
 
-  mainAudio.play();
-  carAudio.play();
+  if (mainAudio.paused) mainAudio.play();
+  if (carAudio.paused) carAudio.play();
 }
 
 // Инициализация событий загрузки
@@ -309,16 +306,12 @@ video.addEventListener('timeupdate', function () {
   }
 });
 
-// $('video').each((idx, el) => {
-//   el.addEventListener('pause', function () {
-//     if (mainAudio.paused) mainAudio.play();
-//     if (carAudio.paused) carAudio.play();
-//   });
-// })
+// video.addEventListener('pause', function () {
+//   if (mainAudio.paused) mainAudio.play();
+//   if (carAudio.paused) carAudio.play();
+// });
 
-// $('video').each((idx, el) => {
-//   el.addEventListener('play', function () {
-//     if (mainAudio.paused) mainAudio.play();
-//     if (carAudio.paused) carAudio.play();
-//   });
-// })
+// video.addEventListener('play', function () {
+//   if (mainAudio.paused) mainAudio.play();
+//   if (carAudio.paused) carAudio.play();
+// });
