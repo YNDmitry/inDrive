@@ -43,7 +43,7 @@ function initializeI18next() {
       fallbackLng: 'en',
       supportedLngs: ['ru', 'en', 'fr', 'kz', 'es', 'in', 'ar', 'pt', 'ur'],
       backend: {
-        loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive/public/locales/{{lng}}.json'
+        loadPath: 'https://cdn.jsdelivr.net/gh/yndmitry/inDrive/dist/locales/{{lng}}.json'
       }
     }, (err, t) => {
       if (err) {

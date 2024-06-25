@@ -99,8 +99,8 @@
       "id": 6,
       "text": "Pada April 2021, inDrive menerima status startup dongeng. Apa nama status ini?",
       "options": [
-        "Unicorn",
         "Griffin",
+        "Unicorn",
         "Dragon"
       ],
       "correctAnswer": "Unicorn",
