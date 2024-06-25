@@ -20,18 +20,18 @@ let score = 0;
 let answeredQuestions = new Set(); // Множество для отслеживания отвеченных вопросов
 
 const stopTimes = [
-  { start: 12, end: 15 },
-  { start: 30, end: 34 },
-  { start: 45, end: 49 },
-  { start: 60, end: 64 },
-  { start: 75, end: 79 },
-  { start: 92, end: 96 },
+  { start: 12, end: 17 },
+  { start: 30, end: 35 },
+  { start: 45, end: 50 },
+  { start: 60, end: 65 },
+  { start: 75, end: 80 },
+  { start: 92, end: 97 },
   { start: 112, end: 116 },
-  { start: 137, end: 141 },
-  { start: 162, end: 165 },
-  { start: 180, end: 184 },
-  { start: 205, end: 209 },
-  { start: 238, end: 245 }
+  { start: 129, end: 134 },
+  { start: 150, end: 154 },
+  { start: 164, end: 168 },
+  { start: 185, end: 190 },
+  { start: 210, end: 215 }
 ];
 
 // Инициализация i18next
