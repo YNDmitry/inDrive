@@ -7,7 +7,7 @@
     "buttonGift": "Sorpresa agradable"
   },
   "intro": {
-    "text": "¡Hola!\n\n¿Estás listo para embarcarte en un viaje por la historia de inDrive? ¡Una sorpresa encantadora te espera al final del juego!",
+    "text": "¡Hola!\n\n¿Estás listo para hacer un viaje por la historia de inDrive?\n\n¡Tenemos una sorpresa encantadora para ti al final del juego!",
     "button": "¡Vamos!"
   },
   "questions": [
@@ -22,12 +22,12 @@
       "correctAnswer": "Yakutsk",
       "feedback": {
         "correct": "¡Así es! La historia de inDrive comenzó en Yakutsk, una de las ciudades más frías del mundo.",
-        "incorrect": "¡Estás cerca! De hecho, es Yakutsk. inDrive nació como una respuesta a la injusticia. Un día, en la víspera de Año Nuevo, en la época más fría del año, las empresas de transporte locales duplicaron sus tarifas, poniendo a los ciudadanos en una posición difícil. Así apareció inDrive, la app donde todos pueden obtener un viaje a un precio justo."
+        "incorrect": "¡Estás cerca! De hecho, es Yakutsk.\n\ninDrive nació como una respuesta para combatir las injusticias. Un día, en la víspera de Año Nuevo, en la época más fría del año, las empresas de transporte locales duplicaron sus tarifas, poniendo a los ciudadanos en una posición difícil. Así apareció inDrive, la app donde todos pueden obtener un viaje a un precio justo."
       }
     },
     {
       "id": 1,
-      "text": "En 2014, inDrive alcanzó un nuevo nivel y apareció en otro país. ¿Puedes adivinar cuál?",
+      "text": "En 2014, inDrive alcanzó dio un nuevo paso y apareció en otro país. ¿Puedes adivinar cuál?",
       "options": [
         "México",
         "Kazajistán",
@@ -35,13 +35,13 @@
       ],
       "correctAnswer": "Kazajistán",
       "feedback": {
-        "correct": "¡Así es, fue Kazajistán! Y 4 años después, entramos en el mercado de América Central y del Sur.",
-        "incorrect": "Fue Kazajistán. Y apenas 4 años después, entramos en el mercado de América Central y del Sur."
+        "correct": "¡Así es, fue Kazajistán! Y 4 años después, entramos en el mercado de América Latina.",
+        "incorrect": "Fue Kazajistán. Y apenas 4 años después, entramos en el mercado de América Latina."
       }
     },
     {
       "id": 2,
-      "text": "¿Cuál de estas ciudades tiene inDrive?",
+      "text": "¿En cuál de estas ciudades encuentras inDrive?",
       "options": [
         "Bolt-York",
         "Uberlândia",
@@ -49,13 +49,13 @@
       ],
       "correctAnswer": "Uberlândia",
       "feedback": {
-        "correct": "¡Eso es correcto, es Uberlândia! Si alguna vez te encuentras en esta encantadora ciudad brasileña, ¡sabrás que siempre puedes negociar el precio de tu viaje allí!",
-        "incorrect": "¡Es Uberlândia! Sí, es una ciudad real en Brasil. Gettsburg y Bolt-York son nuestras invenciones."
+        "correct": "¡Eso es correcto, es Uberlândia!\n\nSi alguna vez te encuentras en esta encantadora ciudad brasileña, ¡sabrás que siempre podrás negociar el precio de tu viaje allí!",
+        "incorrect": "¡Es Uberlândia!\n\nSí, es una ciudad real en Brasil. Gettsburg y Bolt-York son ciudades ficticias."
       }
     },
     {
       "id": 3,
-      "text": "¿Cuántas ciudades cubre inDrive?",
+      "text": "¿En cuántas ciudades tiene presencia inDrive?",
       "options": [
         "463",
         "652",
@@ -63,8 +63,8 @@
       ],
       "correctAnswer": "749",
       "feedback": {
-        "correct": "¡Lo acertaste, 749! ¡Pero siempre aspiramos a más!",
-        "incorrect": "¡Vaya, respuesta incorrecta! inDrive está presente en 749 ciudades en la actualidad. Pero por supuesto, tenemos grandes planes."
+        "correct": "¡Acertaste, son 749! ¡Pero seguimos aspirando a llegar a más ciudades!",
+        "incorrect": "¡Vaya, respuesta incorrecta!\n\ninDrive está presente en 749 ciudades en la actualidad. Pero por supuesto, tenemos grandes planes."
       }
     },
     {
@@ -77,8 +77,8 @@
       ],
       "correctAnswer": "Puedes negociar el precio en inDrive",
       "feedback": {
-        "correct": "¡Así es! Un precio justo para un viaje es la principal diferencia entre inDrive y otras aplicaciones.",
-        "incorrect": "Primero y ante todo, estamos por la justicia social. Es por eso que siempre puedes negociar el precio en inDrive."
+        "correct": "¡Es correcto! Negociar el preciopara un viaje es la principal diferencia entre inDrive y otras aplicaciones.",
+        "incorrect": "Primero que todo, buscamos combatir las injusticias. Es por eso que siempre puedes negociar el precio en inDrive."
       }
     },
     {
