@@ -107,10 +107,6 @@ function showPauseClip(index) {
     $(clip).fadeIn(200).prop('autoplay', true).get(0).play();
     mainAudio.volume = 0.2
     fadeOutAudio(mainAudio, 0.2, 200)
-    setTimeout(() => {
-      mainAudio.play();
-      carAudio.play();
-    }, 200);
   }
 }
 
@@ -120,10 +116,6 @@ function hidePauseClip(index) {
   if (clip) {
     $(clip).fadeOut(200).prop('autoplay', false).get(0).pause();
     fadeInAudio(mainAudio, 1, 200)
-    setTimeout(() => {
-      mainAudio.play();
-      carAudio.play();
-    }, 200);
   }
 }
 
@@ -261,7 +253,7 @@ $(document).ready(function () {
     checkAllResourcesLoaded()
   });
 
-  $('#main-audio').on('loadeddata', function () {
+  $('#main-audio').on('canplaythrough', function () {
     resourcesLoaded.mainAudio = true;
     checkAllResourcesLoaded()
   });
